@@ -1,0 +1,107 @@
+<app-nav-bar-emp></app-nav-bar-emp>
+<br>
+<div class="container col ">
+    <div class="card animated fadeIn fast">
+        <div class="card-header">
+            GESTION DE HABITACIONES
+        </div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <h3>Registro De Habitaciones</h3>
+                    <form>
+                        <div class="form-group">
+                            <h5 class="card-title"><strong>ID habitacion</strong></h5>
+                            <input type="text" class="form-control" placeholder="IDhabitacion">
+                        </div>
+                        <div class="form-group">
+                            <h5 class="card-title"><strong>Tipo</strong></h5>
+                            <input type="text" class="form-control" placeholder="Tipo">
+                        </div>
+                        <div class="form-group">
+                            <h5 class="card-title"><strong>N° Personas</strong></h5>
+                            <input type="number" class="form-control" placeholder="N° Personas">
+                        </div>
+                        <div class="form-group">
+                            <h5 class="card-title"><strong>Costo</strong></h5>
+                            <input type="number" class="form-control" placeholder="Costo">
+                        </div>
+                        <div class="col" id="btnreg">
+                            <ul class="navega">
+                                <li>
+                                    <a type="button" class="btn btn-outline-light">Registrar</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+
+                <div class="col">
+                    <img src="assets/img/dormir.png" alt="">
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="IDHabitacion">
+                        </div>
+
+                        <div class="col" id="btnreg">
+                            <ul class="navega">
+                                <li>
+                                    <a type="button" class="btn btn-outline-light">Buscar</a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-outline-light">Actualizar</a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-outline-light">Eliminar</a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-outline-light">Consultar Listado</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container col">
+    <div class="card animated fadeIn fast">
+        <div class="card-header">
+            LISTADO DE HABITACIONES
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+
+                        <th>Idhabitacion</th>
+                        <th>tipo</th>
+                        <th>N°Personas</th>
+                        <th>costo</th>
+                        <th>Estado</th>
+                        <th>N°Usos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <th>1</th>
+                        <th>simple</th>
+                        <th>1</th>
+                        <th>60000</th>
+                        <th>disponible</th>
+                        <th>0</th>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

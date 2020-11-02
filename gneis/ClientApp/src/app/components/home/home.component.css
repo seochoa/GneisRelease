@@ -1,0 +1,21 @@
+.jumbotron {
+    background-color: #9c56189d;
+    color: white;
+}
+
+h3 {
+    font-family: cursive;
+    color: #5a3f11;
+    text-align: center;
+}
+
+p {
+    font-family: cursive;
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+}

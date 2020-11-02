@@ -1,0 +1,46 @@
+<div class="container col-sm-4">
+    <div class="card animated fadeIn fast">
+        <div class="card-header">
+            INICIAR SESION
+        </div>
+        <div class="card-body">
+
+            <img src="assets/img/login.png" alt="">
+
+
+            <form>
+                <div class="form-group">
+                    <h4 class="card-title"><strong>Tipo</strong></h4>
+                    <select class="form-control" id="tipo" name="tipo" [(ngModel)]="tipouser">
+                        <option>Admin</option>
+                        <option>User</option>
+                        <option>Emp</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <h4 class="card-title"><strong>User</strong></h4>
+                    <input type="email" class="form-control" placeholder="User">
+                </div>
+
+                <div class="form-group">
+                    <h5 class="card-title"><strong>Password</strong></h5>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+
+
+
+                <div class="col">
+                    <ul class="navega">
+                        <li>
+                            <a type="button" class="btn btn-outline-light" [routerLink]="[login()]">Login</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <a type="button" class="btn btn-outline-light" [routerLink]="['/']">🡠Volver</a>
+
+            </form>
+        </div>
+    </div>
+</div>

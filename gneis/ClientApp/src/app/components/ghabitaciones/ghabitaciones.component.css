@@ -1,0 +1,53 @@
+.card-header {
+    text-align: center;
+    color: white;
+    font-family: cursive;
+    background-color: #9c5518;
+}
+
+.card-body {
+    font-family: cursive;
+    color: white;
+    background-color: #da7721d8;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+button {
+    font-family: cursive;
+}
+
+.row {
+    padding-top: 20px;
+}
+
+h3 {
+    text-align: center;
+}
+
+#btnreg {
+    text-align: center;
+}
+
+ul.navega li {
+    display: inline;
+    padding-right: 0.5em;
+}
+
+.table {
+    color: white;
+}
+
+thead {
+    background-color: #9c5518;
+}
+
+tbody {
+    background-color: #c7681583;
+}
+
+img {
+    display: block;
+    margin: auto;
+    padding-bottom: 10px;
+}
