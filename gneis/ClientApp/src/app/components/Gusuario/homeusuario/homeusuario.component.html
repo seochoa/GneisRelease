@@ -12,18 +12,26 @@
                     <h3>Registro De Usuario</h3>
                     <form>
                         <div class="form-group">
-                            <h5 class="card-title"><strong>User</strong></h5>
-                            <input type="email" class="form-control" placeholder="User">
+                            <h5 class="card-title "><strong>IDUser</strong></h5>
+                            <input autocomplete="off" type="text " name="iduser " class="form-control " placeholder="IDUser " [(ngModel)]="usuario.iduser">
                         </div>
                         <div class="form-group">
-                            <h5 class="card-title"><strong>Password</strong></h5>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <h5 class="card-title "><strong>TypeUser</strong></h5>
+                            <select class="form-control" name="typeuser" id="typeuser" [(ngModel)]="usuario.typeuser">
+                                <option >Admin</option>
+                                <option >User</option>
+                                <option >Emp</option>
+                            </select>
+                        </div>
+                        <div class="form-group ">
+                            <h5 class="card-title "><strong>Password</strong></h5>
+                            <input autocomplete="off" type="password " class="form-control " name="password " placeholder="Password " [(ngModel)]="usuario.password">
                         </div>
 
-                        <div class="col" id="btnreg">
-                            <ul class="navega">
+                        <div class="col " id="btnreg ">
+                            <ul class="navega ">
                                 <li>
-                                    <a type="button" class="btn btn-outline-light">Registrar</a>
+                                    <button type="reset" class="btn btn-outline-light " (click)="add()">Registrar</button>
                                 </li>
                             </ul>
                         </div>
@@ -31,26 +39,20 @@
                     </form>
                 </div>
 
-                <div class="col">
-                    <img src="assets/img/login.png" alt="">
+                <div class="col ">
+                    <img src="assets/img/login.png " alt=" ">
                     <form>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="IDUser">
+                        <div class="form-group ">
+                            <input autocomplete="off" type="text " class="form-control " name="iduser " placeholder="IDUser " [(ngModel)]="iduser ">
                         </div>
 
-                        <div class="col" id="btnreg">
-                            <ul class="navega">
+                        <div class="col " id="btnreg ">
+                            <ul class="navega ">
                                 <li>
-                                    <a type="button" class="btn btn-outline-light">Buscar</a>
+                                    <button type="button " class="btn btn-outline-light ">Actualizar</button>
                                 </li>
                                 <li>
-                                    <a type="button" class="btn btn-outline-light">Actualizar</a>
-                                </li>
-                                <li>
-                                    <a type="button" class="btn btn-outline-light">Eliminar</a>
-                                </li>
-                                <li>
-                                    <a type="button" class="btn btn-outline-light">Consultar Lista</a>
+                                    <button type="reset" class="btn btn-outline-light " (click)="eliminar()">Eliminar</button>
                                 </li>
                             </ul>
                         </div>
@@ -63,40 +65,40 @@
 </div>
 
 <br>
-
-<div class="container col">
-    <div class="card animated fadeIn fast">
-        <div class="card-header">
-            LISTADO DE USUARIOS
+<div class="card-header ">
+    LISTADO DE USUARIOS
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="form-group ">
+                <input autocomplete="off" type="text " class="form-control " name="search" placeholder="Search" [(ngModel)]="searchuser">
+            </div>
         </div>
-        <div class="card-body">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>N°</th>
-                        <th>User</th>
-                        <th>Password</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>sebas</td>
-                        <td>121321</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>juan</td>
-                        <td>123232</td>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <td>mike</td>
-                        <td>24232</td>
-                    </tr>
-                </tbody>
-            </table>
-
+        <div class="col-sm-2">
+            <a type="button " class="btn btn-outline-light " (click)="consultar()">Consultar Lista</a>
         </div>
     </div>
+</div>
+
+<br>
+<div class="container ">
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col ">#</th>
+                <th scope="col ">IDuser</th>
+                <th scope="col ">Password</th>
+                <th scope="col ">TypeUser</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios|filtroUsuario:searchuser; index as i ">
+                <th scope="row ">{{i+1}}</th>
+                <td>{{usuario.iduser}}</td>
+                <td>{{usuario.password}}</td>
+                <td>{{usuario.typeuser}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

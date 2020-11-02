@@ -1,0 +1,14 @@
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\bin\Debug\netstandard2.1\Logica.deps.json
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\bin\Debug\netstandard2.1\Logica.dll
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\bin\Debug\netstandard2.1\Logica.pdb
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\bin\Debug\netstandard2.1\Datos.dll
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\bin\Debug\netstandard2.1\Entidad.dll
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\bin\Debug\netstandard2.1\Entidad.pdb
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\bin\Debug\netstandard2.1\Datos.pdb
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\obj\Debug\netstandard2.1\Logica.csprojAssemblyReference.cache
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\obj\Debug\netstandard2.1\Logica.csproj.CoreCompileInputs.cache
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\obj\Debug\netstandard2.1\Logica.AssemblyInfoInputs.cache
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\obj\Debug\netstandard2.1\Logica.AssemblyInfo.cs
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\obj\Debug\netstandard2.1\Logica.csproj.CopyComplete
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\obj\Debug\netstandard2.1\Logica.dll
+C:\Users\SEBASTIAN\Documents\GNEIS RELEASE\Logica\obj\Debug\netstandard2.1\Logica.pdb

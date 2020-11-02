@@ -27,6 +27,9 @@ import { Home4Component } from './components/home4/home4.component';
 import { NavBarUserComponent } from './components/nav-bar-user/nav-bar-user.component';
 import { HabitacionesConsultaComponent } from './components/habitaciones-consulta/habitaciones-consulta.component';
 import { ReservaregistroComponent } from './components/reservaregistro/reservaregistro.component';
+import { UsuarioService } from './Services/usuario.service';
+import { FiltroUsuarioPipe } from './pipes/filtro-usuario.pipe';
+
 
 
 
@@ -54,6 +57,7 @@ import { ReservaregistroComponent } from './components/reservaregistro/reservare
     NavBarUserComponent,
     HabitacionesConsultaComponent,
     ReservaregistroComponent,
+    FiltroUsuarioPipe,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -61,7 +65,7 @@ import { ReservaregistroComponent } from './components/reservaregistro/reservare
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
