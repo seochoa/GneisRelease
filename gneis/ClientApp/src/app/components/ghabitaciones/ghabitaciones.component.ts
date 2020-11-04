@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Habitacion } from '../../Models/habitacion';
+import { HabitacionService } from '../../Services/habitacion.service';
 
 @Component({
   selector: 'app-ghabitaciones',
@@ -7,9 +10,71 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GhabitacionesComponent implements OnInit {
 
-  constructor() { }
+  formGroup: FormGroup;
+  searchhabitacion: string;
+  habitaciones : Habitacion[];
+  habitacion : Habitacion;
+  idhabitacion : string;
+
+  constructor(private habitacionService : HabitacionService,private formbuilder : FormBuilder) { }
 
   ngOnInit(): void {
+    this.buildform();
+  }
+
+  private buildform(){
+    this.habitacion = new Habitacion();
+    this.habitacion.idhabitacion = '';
+    this.habitacion.tipo = '';
+    this.habitacion.costo = 0;
+
+    this.formGroup = this.formbuilder.group({
+      idhabitacion   :[this.habitacion.idhabitacion, Validators.required],
+      tipo           :[this.habitacion.tipo, Validators.required],
+      costo          :[this.habitacion.costo,Validators.required],
+    });
+  }
+
+  get control(){
+    return this.formGroup.controls;
+  }
+
+  onReset(){
+    this.formGroup.reset();
+  }
+
+  onSave(){
+    if(this.formGroup.invalid){
+      return;
+    }
+    this.add();
+  }
+
+  add(){
+    this.habitacion = this.formGroup.value;
+    this.habitacion.estado = 'Disponible';
+    this.habitacion.usos = 0;
+    console.log(this.habitacion);
+    this.habitacionService.post(this.habitacion).subscribe(p=>{
+      if(p!=null){
+         alert('Habitacion Registrada');
+         this.habitacion = p;
+       }
+    });
+    this.onReset();
+  }
+
+  consultar(){
+    this.habitacionService.gets().subscribe(result =>{
+      this.habitaciones = result;
+    });
+  }
+
+  eliminar(){
+    this.habitacionService.delete(this.idhabitacion).subscribe(mensaje =>{
+      alert('Habitacion Eliminada Correctamente');
+    });
+    this.onReset();
   }
 
 }

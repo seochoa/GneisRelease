@@ -34,20 +34,22 @@ ul.navega li {
     padding-right: 0.5em;
 }
 
-.table {
-    color: white;
-}
-
 thead {
     background-color: #9c5518;
+    color: white;
 }
 
 tbody {
     background-color: #c7681583;
+    color: black;
 }
 
 img {
     display: block;
     margin: auto;
     padding-bottom: 10px;
+}
+
+.invalid-feedback {
+    color: rgb(121, 7, 7);
 }

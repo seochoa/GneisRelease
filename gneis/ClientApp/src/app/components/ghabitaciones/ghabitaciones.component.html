@@ -10,39 +10,58 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h3>Registro De Habitaciones</h3>
-                    <form>
+                    <form [formGroup]="formGroup">
                         <div class="form-group">
                             <h5 class="card-title"><strong>ID habitacion</strong></h5>
-                            <input type="text" class="form-control" placeholder="IDhabitacion">
+                            <input type="text" autocomplete="off" name="idhabitacion" class="form-control" placeholder="IDhabitacion" [ngClass]="{'is-invalid':control.idhabitacion.errors && control.idhabitacion.touched}" formControlName="idhabitacion">
+                            <div *ngIf="control.idhabitacion.errors"  class="invalid-feedback">
+                                <div *ngIf="control.idhabitacion.errors.required">
+                                    Se requiere el ID de la Habitacion
+                                </div>
+                            </div>
                         </div>
+
                         <div class="form-group">
                             <h5 class="card-title"><strong>Tipo</strong></h5>
-                            <input type="text" class="form-control" placeholder="Tipo">
+                            <select class="form-control" name="tipo" id="tipo" [ngClass]="{'is-invalid':control.tipo.errors && control.tipo.touched}" formControlName="tipo">
+                                <option >Simple</option>
+                                <option >Doble</option>
+                                <option >Triple</option>
+                                <option >Familiar</option>
+                            </select>
+                            <div *ngIf="control.tipo.errors"  class="invalid-feedback">
+                                <div *ngIf="control.tipo.errors.required">
+                                    Se requiere el Tipo de Habitacion
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <h5 class="card-title"><strong>N° Personas</strong></h5>
-                            <input type="number" class="form-control" placeholder="N° Personas">
-                        </div>
+
                         <div class="form-group">
                             <h5 class="card-title"><strong>Costo</strong></h5>
-                            <input type="number" class="form-control" placeholder="Costo">
+                            <input type="number" autocomplete="off" name="costo" class="form-control" placeholder="Costo" [ngClass]="{'is-invalid':control.costo.errors && control.costo.touched}" formControlName="costo">
                         </div>
-                        <div class="col" id="btnreg">
-                            <ul class="navega">
-                                <li>
-                                    <a type="button" class="btn btn-outline-light">Registrar</a>
-                                </li>
-                            </ul>
+                        <div *ngIf="control.costo.errors"  class="invalid-feedback">
+                            <div *ngIf="control.costo.errors.required">
+                                Se requiere el Costo de la Habitacion
+                            </div>
                         </div>
-                        <br>
+
                     </form>
+                    <div class="col " id="btnreg ">
+                        <ul class="navega ">
+                            <li>
+                                <button type="button" class="btn btn-outline-light " (click)="onSave() " [disabled]="formGroup.invalid">Registrar</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
                 </div>
 
                 <div class="col">
                     <img src="assets/img/dormir.png" alt="">
                     <form>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="IDHabitacion">
+                        <div class="form-group ">
+                            <input autocomplete="off" type="text " class="form-control " name="idhabitacion " placeholder="IDHabitacion" [(ngModel)]="idhabitacion">
                         </div>
 
                         <div class="col" id="btnreg">
@@ -54,10 +73,7 @@
                                     <a type="button" class="btn btn-outline-light">Actualizar</a>
                                 </li>
                                 <li>
-                                    <a type="button" class="btn btn-outline-light">Eliminar</a>
-                                </li>
-                                <li>
-                                    <a type="button" class="btn btn-outline-light">Consultar Listado</a>
+                                    <a type="button" class="btn btn-outline-light" (click)="eliminar()">Eliminar</a>
                                 </li>
                             </ul>
                         </div>
@@ -70,36 +86,44 @@
 </div>
 
 <br>
-
-<div class="container col">
-    <div class="card animated fadeIn fast">
-        <div class="card-header">
-            LISTADO DE HABITACIONES
+<div class="card-header ">
+    LISTADO DE HABITACIONES
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="form-group ">
+                <input autocomplete="off" type="text " class="form-control " name="search" placeholder="Search" [(ngModel)]="searchhabitacion">
+            </div>
         </div>
-        <div class="card-body">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-
-                        <th>Idhabitacion</th>
-                        <th>tipo</th>
-                        <th>costo</th>
-                        <th>Estado</th>
-                        <th>N°Usos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-
-                        <th>1</th>
-                        <th>simple</th>
-                        <th>60000</th>
-                        <th>disponible</th>
-                        <th>0</th>
-                    </tr>
-                </tbody>
-            </table>
-
+        <div class="col-sm-2">
+            <a type="button " class="btn btn-outline-light " (click)="consultar()">Consultar Lista</a>
         </div>
     </div>
+</div>
+
+<br>
+<div class="container ">
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col ">#</th>
+                <th scope="col ">IDHabitacion</th>
+                <th scope="col ">Tipo</th>
+                <th scope="col ">Costo</th>
+                <th scope="col ">Estado</th>
+                <th scope="col ">Usos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let habitacion of habitaciones; index as i ">
+                <th scope="row ">{{i+1}}</th>
+                <td>{{habitacion.idhabitacion}}</td>
+                <td>{{habitacion.tipo}}</td>
+                <td>{{habitacion.costo}}</td>
+                <td>{{habitacion.estado}}</td>
+                <td>{{habitacion.usos}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

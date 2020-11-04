@@ -29,6 +29,7 @@ import { HabitacionesConsultaComponent } from './components/habitaciones-consult
 import { ReservaregistroComponent } from './components/reservaregistro/reservaregistro.component';
 import { UsuarioService } from './Services/usuario.service';
 import { FiltroUsuarioPipe } from './pipes/filtro-usuario.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -64,7 +65,8 @@ import { FiltroUsuarioPipe } from './pipes/filtro-usuario.pipe';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent]
