@@ -30,6 +30,8 @@ import { ReservaregistroComponent } from './components/reservaregistro/reservare
 import { UsuarioService } from './Services/usuario.service';
 import { FiltroUsuarioPipe } from './pipes/filtro-usuario.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FiltroproductoPipe } from './pipes/filtroproducto.pipe';
+import { FiltrohabitacionPipe } from './pipes/filtrohabitacion.pipe';
 
 
 
@@ -59,6 +61,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HabitacionesConsultaComponent,
     ReservaregistroComponent,
     FiltroUsuarioPipe,
+    FiltroproductoPipe,
+    FiltrohabitacionPipe,
   ],
   imports: [
     ReactiveFormsModule,

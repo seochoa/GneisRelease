@@ -71,9 +71,9 @@
 
                         <div class="col" id="btnreg">
                             <ul class="navega">
-                                <li>
+                                <!-- <li>
                                     <a type="button" class="btn btn-outline-light">Buscar</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a type="button" class="btn btn-outline-light">Actualizar</a>
                                 </li>
@@ -120,12 +120,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let producto of productos; index as i ">
+            <tr *ngFor="let producto of productos|filtroproducto:searchproducto; index as i ">
                 <th scope="row ">{{i+1}}</th>
                 <td>{{producto.idproducto}}</td>
                 <td>{{producto.descripcion}}</td>
                 <td>{{producto.stock}}</td>
-                <td>{{producto.vrunitario}}</td>
+                <td>{{producto.vrunitario|currency:'COP$ ':'symbol':'.0-0'}}</td>
             </tr>
         </tbody>
     </table>

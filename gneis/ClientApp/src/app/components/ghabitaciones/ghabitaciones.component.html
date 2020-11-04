@@ -66,9 +66,9 @@
 
                         <div class="col" id="btnreg">
                             <ul class="navega">
-                                <li>
+                                <!-- <li>
                                     <a type="button" class="btn btn-outline-light">Buscar</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a type="button" class="btn btn-outline-light">Actualizar</a>
                                 </li>
@@ -116,11 +116,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let habitacion of habitaciones; index as i ">
+            <tr *ngFor="let habitacion of habitaciones |filtrohabitacion : searchhabitacion; index as i ">
                 <th scope="row ">{{i+1}}</th>
                 <td>{{habitacion.idhabitacion}}</td>
                 <td>{{habitacion.tipo}}</td>
-                <td>{{habitacion.costo}}</td>
+                <td>{{habitacion.costo|currency:'COP$ ':'symbol':'.0-0'}}</td>
                 <td>{{habitacion.estado}}</td>
                 <td>{{habitacion.usos}}</td>
             </tr>
