@@ -1,0 +1,79 @@
+using Datos;
+using Entidad;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Logica
+{
+    public class HabitacionService
+    {
+        private readonly ProyectoContext _context;
+
+        public HabitacionService(ProyectoContext context){
+            _context=context;
+        }
+
+        public GuardarHabitacionResponse Guardar(Habitacion habitacion){
+            try{
+                var HabitacionBuscada = _context.Habitaciones.Find(habitacion.Idhabitacion);
+                if(HabitacionBuscada !=null){
+                    return new GuardarHabitacionResponse ("Error La Persona Ya se encuentra registrada");
+                }
+
+                _context.Habitaciones.Add(habitacion);
+                _context.SaveChanges();
+                return new GuardarHabitacionResponse (habitacion);
+
+            }
+            catch(Exception e){
+                return new GuardarHabitacionResponse ($"Error de la aplicacion: {e.Message}");
+            }
+        }
+
+        public List<Habitacion> ConsultarTodos(){
+            List<Habitacion> Habitaciones = _context.Habitaciones.ToList();
+            return Habitaciones;
+        }
+
+        public Habitacion BuscarPorID(string idhabitacion){
+            Habitacion habitacion = _context.Habitaciones.Find(idhabitacion);
+            return habitacion;
+        }
+
+        public string Eliminar (string idhabitacion){
+            try{
+                var HabitacionBuscada = _context.Habitaciones.Find(idhabitacion);
+                if(HabitacionBuscada !=null){
+                    _context.Habitaciones.Remove(HabitacionBuscada);
+                    _context.SaveChanges();
+                    return ($"El registro se ha eliminado sastifactoriamente.");
+                }
+                else{
+                    return ($"La Identificacion no se encuentra en nuestra base de datos");
+                }
+            }
+            catch(Exception e){
+                return $"Error de la aplicacion: {e.Message}";
+            }
+        }
+        
+    }
+
+    public class GuardarHabitacionResponse
+    {
+        public GuardarHabitacionResponse(Habitacion habitacion)
+        {
+            Error = false;
+            Habitacion = habitacion;
+        }
+        public GuardarHabitacionResponse(string mensaje)
+        {
+            Error = true;
+            Mensaje = mensaje;
+        }
+        public bool Error { get; set; }
+        public string Mensaje { get; set; }
+        public Habitacion Habitacion { get; set; }
+    }
+}

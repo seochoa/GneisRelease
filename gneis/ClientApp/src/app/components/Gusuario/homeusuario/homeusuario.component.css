@@ -51,3 +51,7 @@ img {
     display: block;
     margin: auto;
 }
+
+.invalid-feedback {
+    color: rgb(121, 7, 7);
+}

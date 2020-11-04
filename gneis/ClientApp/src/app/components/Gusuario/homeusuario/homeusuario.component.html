@@ -10,33 +10,47 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h3>Registro De Usuario</h3>
-                    <form>
+                    <form [formGroup]="formGroup">
                         <div class="form-group">
                             <h5 class="card-title "><strong>IDUser</strong></h5>
-                            <input autocomplete="off" type="text " name="iduser " class="form-control " placeholder="IDUser " [(ngModel)]="usuario.iduser">
+                            <input autocomplete="off" type="text " name="iduser " class="form-control " placeholder="IDUser " [ngClass]="{'is-invalid':control.iduser.errors && control.iduser.touched}" formControlName="iduser">
+                            <div *ngIf="control.iduser.errors"  class="invalid-feedback">
+                                <div *ngIf="control.iduser.errors.required">
+                                    Se requiere el ID del usuario
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <h5 class="card-title "><strong>TypeUser</strong></h5>
-                            <select class="form-control" name="typeuser" id="typeuser" [(ngModel)]="usuario.typeuser">
+                            <select class="form-control" name="typeuser" id="typeuser" [ngClass]="{'is-invalid':control.typeuser.errors && control.typeuser.touched}" formControlName="typeuser">
                                 <option >Admin</option>
                                 <option >User</option>
                                 <option >Emp</option>
                             </select>
+                            <div *ngIf="control.typeuser.errors"  class="invalid-feedback">
+                                <div *ngIf="control.typeuser.errors.required">
+                                    Se requiere El tipo de usuario
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group ">
                             <h5 class="card-title "><strong>Password</strong></h5>
-                            <input autocomplete="off" type="password " class="form-control " name="password " placeholder="Password " [(ngModel)]="usuario.password">
+                            <input autocomplete="off" type="password " class="form-control " name="password " placeholder="Password " [ngClass]="{'is-invalid':control.password.errors && control.password.touched}" formControlName="password">
+                            <div *ngIf="control.password.errors"  class="invalid-feedback">
+                                <div *ngIf="control.password.errors.required">
+                                    Se requiere La Contraseña
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="col " id="btnreg ">
-                            <ul class="navega ">
-                                <li>
-                                    <button type="reset" class="btn btn-outline-light " (click)="add()">Registrar</button>
-                                </li>
-                            </ul>
-                        </div>
-                        <br>
                     </form>
+                    <div class="col " id="btnreg ">
+                        <ul class="navega ">
+                            <li>
+                                <button type="button" class="btn btn-outline-light " (click)="onSave() " [disabled]="formGroup.invalid">Registrar</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
                 </div>
 
                 <div class="col ">
