@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from '../../../Models/usuario';
 import { UsuarioService } from '../../../Services/usuario.service';
+import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.component';
 
 @Component({
   selector: 'app-homeusuario',
@@ -15,7 +17,7 @@ export class HomeusuarioComponent implements OnInit {
   usuario: Usuario;
   iduser: string;
   searchuser: string;
-  constructor(private usuarioService : UsuarioService, private formbuilder : FormBuilder) { }
+  constructor(private usuarioService : UsuarioService, private formbuilder : FormBuilder,private modalService : NgbModal) { }
 
   ngOnInit(): void {
     this.buildform();
@@ -54,7 +56,9 @@ export class HomeusuarioComponent implements OnInit {
     this.usuario = this.formGroup.value;
     this.usuarioService.post(this.usuario).subscribe(p=>{
       if(p!=null){
-        alert('Usuario Creado');
+        const menssageBox = this.modalService.open(AlertModalComponent)
+        menssageBox.componentInstance.title = "Resultado Operacion";
+        menssageBox.componentInstance.message = 'Usuario registrado Correctamente';
         this.usuario = p;
       }
     });
@@ -69,7 +73,9 @@ export class HomeusuarioComponent implements OnInit {
 
   eliminar(){
     this.usuarioService.delete(this.iduser).subscribe(mensaje =>{
-      alert('Persona Eliminada Correctamente');
+      const menssageBox = this.modalService.open(AlertModalComponent)
+      menssageBox.componentInstance.title = "Resultado Operacion";
+      menssageBox.componentInstance.message = 'Usuario Eliminado Correctamente';
     });
     this.consultar();
   }

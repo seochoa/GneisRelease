@@ -1,0 +1,23 @@
+.modal-header {
+    background-color: #9c5518;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    color: white;
+    font-family: cursive;
+}
+
+.modal-body {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: large;
+    font-family: cursive;
+    color: white;
+    background-color: #da7721d8;
+}
+
+.modal-footer {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-color: #9c5518;
+}

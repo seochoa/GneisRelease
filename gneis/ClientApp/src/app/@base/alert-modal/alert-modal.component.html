@@ -1,0 +1,10 @@
+<div class="modal-header animated fadeIn fast">
+    <h4 class="modal-title">{{title}}</h4>
+</div>
+<div class="modal-body animated fadeIn fast">
+    <span [innerHTML]="message"></span>
+
+</div>
+<div class="modal-footer animated fadeIn fast">
+    <button type="button"  class="btn btn-outline-light"  (click)="activeModal.close('Close click')"> Cerrar</button>
+</div>

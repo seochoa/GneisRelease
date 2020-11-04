@@ -32,6 +32,7 @@ import { FiltroUsuarioPipe } from './pipes/filtro-usuario.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FiltroproductoPipe } from './pipes/filtroproducto.pipe';
 import { FiltrohabitacionPipe } from './pipes/filtrohabitacion.pipe';
+import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
 
 
 
@@ -63,6 +64,7 @@ import { FiltrohabitacionPipe } from './pipes/filtrohabitacion.pipe';
     FiltroUsuarioPipe,
     FiltroproductoPipe,
     FiltrohabitacionPipe,
+    AlertModalComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -72,6 +74,7 @@ import { FiltrohabitacionPipe } from './pipes/filtrohabitacion.pipe';
     AppRoutingModule,
     NgbModule
   ],
+  entryComponents: [AlertModalComponent],
   providers: [UsuarioService],
   bootstrap: [AppComponent]
 })

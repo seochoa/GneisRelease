@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Habitacion } from '../../Models/habitacion';
 import { HabitacionService } from '../../Services/habitacion.service';
+import { AlertModalComponent } from '../../@base/alert-modal/alert-modal.component';
 
 @Component({
   selector: 'app-ghabitaciones',
@@ -16,7 +18,7 @@ export class GhabitacionesComponent implements OnInit {
   habitacion : Habitacion;
   idhabitacion : string;
 
-  constructor(private habitacionService : HabitacionService,private formbuilder : FormBuilder) { }
+  constructor(private habitacionService : HabitacionService,private formbuilder : FormBuilder,private modalService : NgbModal) { }
 
   ngOnInit(): void {
     this.buildform();
@@ -57,7 +59,9 @@ export class GhabitacionesComponent implements OnInit {
     console.log(this.habitacion);
     this.habitacionService.post(this.habitacion).subscribe(p=>{
       if(p!=null){
-         alert('Habitacion Registrada');
+        const menssageBox = this.modalService.open(AlertModalComponent)
+        menssageBox.componentInstance.title = "Resultado Operacion";
+        menssageBox.componentInstance.message = 'Habitacion registrada Correctamente';
          this.habitacion = p;
        }
     });
@@ -72,7 +76,9 @@ export class GhabitacionesComponent implements OnInit {
 
   eliminar(){
     this.habitacionService.delete(this.idhabitacion).subscribe(mensaje =>{
-      alert('Habitacion Eliminada Correctamente');
+      const menssageBox = this.modalService.open(AlertModalComponent)
+      menssageBox.componentInstance.title = "Resultado Operacion";
+      menssageBox.componentInstance.message = 'Habitacion Eliminada Correctamente';
     });
     this.onReset();
   }
