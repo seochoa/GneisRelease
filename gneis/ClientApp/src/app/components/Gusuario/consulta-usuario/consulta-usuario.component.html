@@ -1,0 +1,33 @@
+<app-nav-bar-admin></app-nav-bar-admin>
+<br>
+
+<div class="container">
+    <h2 id="titulo" class="title">Listado de Usuarios</h2>
+    <input autocomplete="off" type="text " class="email" name="search" placeholder="Search" [(ngModel)]="searchuser">
+</div>
+<br>
+<br>
+<div class="container">
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col ">#</th>
+                <th scope="col ">IDuser</th>
+                <th scope="col ">Password</th>
+                <th scope="col ">TypeUser</th>
+                <th scope="col ">Eliminar</th>
+                <th scope="col ">Modificar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios|filtroUsuario:searchuser; index as i ">
+                <th scope="row ">{{i+1}}</th>
+                <td><strong>{{usuario.iduser}}</strong></td>
+                <td><strong>{{usuario.password}}</strong></td>
+                <td><strong>{{usuario.typeuser}}</strong></td>
+                <td><button id="eliminar" type="button" class="btn btn-light" (click)="eliminar(usuario.iduser)"><i class="fas fa-minus-circle"></i> Eliminar</button></td>
+                <td><button type="button" class="btn btn-secondary"><i class="fas fa-edit"></i> Modificar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,17 +1,23 @@
-<div class="jumbotron jumbotron-fluid animated fadeIn fast">
-    <div class="container">
-        <h1 class="display-4">GNEIS APP WEB</h1>
-        <p class="lead">Aplicativo Web para la Gestion de Recuros del hotel Neruda</p>
-    </div>
-</div>
-<div class="row animated fadeIn">
-    <div class="col-sm-4">
+<app-nav-bar></app-nav-bar>
+<div class="row animated fadeIn fast">
+    <div class="col">
+        <ul>
+            <li id="col">
+                <div class="img">
+                    <img src="assets/img/hotel.svg">
+                </div>
+            </li>
+            <li id="col">
+                <div class="container">
+                    <h1>GNEIS APP WEB</h1>
+                    <p>Aplicativo Web para la Gestion de Recuros del hotel Neruda</p>
+                    <button type="button" id="login" class="btn btn-light" [routerLink]="['/login']" id="login">Login</button>
+                    <button type="button" id="singup" class="btn btn-secondary" [routerLink]="['/signup']">Sign Up</button>
+                </div>
+            </li>
+        </ul>
         <h3>¿PARA QUE SIRVE?</h3>
-        <img src="assets/img/hotel.png" alt="">
-    </div>
-    <div class="col-sm-6">
-        <p>El Aplicativo Tiene como principal objetivo frecer a los empleados del hotel una manera práctica y eficaz de realizar las reservaciones e incluso Podrán gestionar sus clientes asi como las habitaciones o el catálogo de productos que el hotel puede
-            ofrecer a quienes se hospedan en el.
+        <p>El Aplicativo Tiene como principal objetivo frecer a los empleados del hotel <br> una manera práctica y eficaz de realizar las reservaciones e incluso Podrán <br> gestionar sus clientes asi como las habitaciones o el catálogo de productos<br>            que el hotel puede ofrecer a quienes se hospedan en el.
         </p>
     </div>
 </div>

@@ -1,12 +1,20 @@
 .navbar {
-    background-color: #9c5518;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #titulo {
-    color: white;
-    font-family: cursive;
+    color: #00BFA6;
+    font-family: 'Balsamiq Sans', cursive;
+    padding-left: 10px;
+    font-size: xx-large;
+}
+
+small {
+    color: #00BFA6;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: small;
 }
 
 #opciones {

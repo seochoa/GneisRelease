@@ -33,6 +33,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FiltroproductoPipe } from './pipes/filtroproducto.pipe';
 import { FiltrohabitacionPipe } from './pipes/filtrohabitacion.pipe';
 import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { RegistroUsuarioComponent } from './components/Gusuario/registro-usuario/registro-usuario.component';
+import { ConsultaUsuarioComponent } from './components/Gusuario/consulta-usuario/consulta-usuario.component';
 
 
 
@@ -65,6 +68,10 @@ import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
     FiltroproductoPipe,
     FiltrohabitacionPipe,
     AlertModalComponent,
+    SignupComponent,
+    RegistroUsuarioComponent,
+    ConsultaUsuarioComponent,
+
   ],
   imports: [
     ReactiveFormsModule,

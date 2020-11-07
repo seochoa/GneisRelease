@@ -2,12 +2,12 @@
 <div class="col col-sm-4 animated fadeIn fast">
     <div class="container">
         <div class="img">
-            <img src="assets/img/avatar.svg">
+            <img src="assets/img/signin.svg">
         </div>
         <div class="login-content">
             <form action="index.html">
 
-                <h2 id="titulo" class="title">Welcome</h2>
+                <h2 id="titulo" class="title">Sign Up</h2>
                 <div class="input-div one">
                     <div class="i">
                         <i class="fas fa-user"></i>
@@ -24,15 +24,7 @@
                         <input type="password" class="input" placeholder="Password">
                     </div>
                 </div>
-                <br>
-                <div class="form-group">
-                    <select class="form-control" id="tipo" name="tipo" [(ngModel)]="tipouser">
-                        <option>Admin</option>
-                        <option>User</option>
-                        <option>Emp</option>
-                    </select>
-                </div>
-                <button type="button" id="login" class="btn btn-light" [routerLink]="[login()]" id="login">Login</button>
+                <button type="button" id="login" class="btn btn-light" id="login">Register</button>
                 <button type="button" id="singup" class="btn btn-secondary" [routerLink]="['/']">Volver</button>
             </form>
         </div>

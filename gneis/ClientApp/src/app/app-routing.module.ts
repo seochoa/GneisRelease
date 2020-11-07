@@ -17,6 +17,10 @@ import { GfacturasComponent } from './components/gfacturas/gfacturas.component';
 import { Home4Component } from './components/home4/home4.component';
 import { HabitacionesConsultaComponent } from './components/habitaciones-consulta/habitaciones-consulta.component';
 import { ReservaregistroComponent } from './components/reservaregistro/reservaregistro.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { RegistroUsuarioComponent } from './components/Gusuario/registro-usuario/registro-usuario.component';
+import { ConsultaUsuarioComponent } from './components/Gusuario/consulta-usuario/consulta-usuario.component';
+
 
 
 const routes: Routes=[
@@ -24,12 +28,15 @@ const routes: Routes=[
   {path: "home2" , component: Home3Component},
   {path: "home3" , component: Home4Component},
   {path: "homeusuario" , component: HomeusuarioComponent},
+  {path: "RegistroU" , component: RegistroUsuarioComponent},
+  {path: "ConsultaU" , component: ConsultaUsuarioComponent},
   {path: "habitaciones" , component: GhabitacionesComponent},
   {path: "empleados" , component: GempleadosComponent},
   {path: "reservas" , component: GreservasComponent},
   {path: "clientes" , component: GclientesComponent},
   {path: "invitados" , component: GinvitadosComponent},
   {path: "productos" , component: GproductosComponent},
+  {path: "signup" , component: SignupComponent},
   {path: "login" , component: LoginComponent},
   {path: "reportes" , component: GreportesComponent},
   {path: "facturas" , component: GfacturasComponent},
