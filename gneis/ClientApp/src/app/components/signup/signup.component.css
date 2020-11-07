@@ -161,3 +161,7 @@ button {
     margin: 10px;
     text-transform: uppercase;
 }
+
+.invalid-feedback {
+    text-align: right;
+}

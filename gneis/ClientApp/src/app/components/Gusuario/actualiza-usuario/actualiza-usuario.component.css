@@ -25,7 +25,7 @@
     text-align: center;
 }
 
-.img img {
+img {
     width: 300px;
 }
 
@@ -160,6 +160,11 @@ a:hover {
 button {
     margin: 10px;
     text-transform: uppercase;
+}
+
+strong {
+    color: #00BFA6;
+    font-family: 'Architects Daughter', cursive;
 }
 
 .invalid-feedback {

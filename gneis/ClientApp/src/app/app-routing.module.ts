@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Route, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { HomeusuarioComponent } from './components/Gusuario/homeusuario/homeusuario.component';
 import { Home2Component } from './components/home2/home2.component';
 import { GhabitacionesComponent } from './components/ghabitaciones/ghabitaciones.component';
 import { GempleadosComponent } from './components/gempleados/gempleados.component';
@@ -27,7 +26,6 @@ const routes: Routes=[
   {path: "home" , component: Home2Component},
   {path: "home2" , component: Home3Component},
   {path: "home3" , component: Home4Component},
-  {path: "homeusuario" , component: HomeusuarioComponent},
   {path: "RegistroU" , component: RegistroUsuarioComponent},
   {path: "ConsultaU" , component: ConsultaUsuarioComponent},
   {path: "habitaciones" , component: GhabitacionesComponent},

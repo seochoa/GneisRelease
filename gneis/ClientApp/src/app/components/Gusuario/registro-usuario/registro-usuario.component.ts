@@ -54,7 +54,7 @@ export class RegistroUsuarioComponent implements OnInit {
     this.usuarioService.post(this.usuario).subscribe(p=>{
       if(p!=null){
         const menssageBox = this.modalService.open(AlertModalComponent)
-        menssageBox.componentInstance.title = "Resultado Operacion";
+        menssageBox.componentInstance.type = 'success';
         menssageBox.componentInstance.message = 'Usuario registrado Correctamente';
         this.usuario = p;
       }

@@ -1,4 +1,5 @@
-﻿using Datos;
+﻿using System.Resources;
+using Datos;
 using Entidad;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,7 @@ namespace Logica
 
         public List<Usuario> ConsultarTodos(){
             List<Usuario> Usuarios = _context.Usuarios.ToList();
+            
             return Usuarios;
         }
 
@@ -58,6 +60,27 @@ namespace Logica
                 return $"Error de la aplicacion: {e.Message}";
             }
         }
+
+        public string Modificar (Usuario usuarionuevo){
+            try{
+                var Usuarioviejo = _context.Usuarios.Find(usuarionuevo.Iduser);
+                if(Usuarioviejo !=null){
+                    Usuarioviejo.Iduser = usuarionuevo.Iduser;
+                    Usuarioviejo.Typeuser = usuarionuevo.Typeuser;
+                    Usuarioviejo.Password = usuarionuevo.Password;
+                    _context.Usuarios.Update(Usuarioviejo);
+                    _context.SaveChanges();
+                    return ($"El registro se ha Actualizado sastifactoriamente.");
+                }
+                else{
+                    return ($"La Identificacion no se encuentra en nuestra base de datos");
+                }
+            }
+            catch(Exception e){
+                return $"Error de la aplicacion: {e.Message}";
+            }
+        }
+
 
         
 

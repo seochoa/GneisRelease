@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from '../../../Models/usuario';
 import { UsuarioService } from '../../../Services/usuario.service';
 import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.component';
+import { ActualizaUsuarioComponent } from '../actualiza-usuario/actualiza-usuario.component';
 
 @Component({
   selector: 'app-consulta-usuario',
@@ -22,16 +23,24 @@ export class ConsultaUsuarioComponent implements OnInit {
   consultar(){
     this.usuarioService.gets().subscribe(result =>{
       this.usuarios = result;
+      console.log(result);
     });
   }
 
   eliminar(iduser: string){
     this.usuarioService.delete(iduser).subscribe(mensaje =>{
       const menssageBox = this.modalService.open(AlertModalComponent)
-      menssageBox.componentInstance.title = "Resultado Operacion";
+      menssageBox.componentInstance.type = 'danger';
       menssageBox.componentInstance.message = 'Usuario Eliminado Correctamente';
+      this.consultar();
     });
-    this.consultar();
+    
+  }
+
+  actualizar(Usuario: Usuario){
+    const menssageBox = this.modalService.open(ActualizaUsuarioComponent)
+    menssageBox.componentInstance.usuarioviejo = Usuario;
+    this.ngOnInit();
   }
 
 }

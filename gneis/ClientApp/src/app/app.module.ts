@@ -10,7 +10,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeusuarioComponent } from './components/Gusuario/homeusuario/homeusuario.component';
 import { Home2Component } from './components/home2/home2.component';
 import { GhabitacionesComponent } from './components/ghabitaciones/ghabitaciones.component';
 import { GempleadosComponent } from './components/gempleados/gempleados.component';
@@ -36,6 +35,7 @@ import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { RegistroUsuarioComponent } from './components/Gusuario/registro-usuario/registro-usuario.component';
 import { ConsultaUsuarioComponent } from './components/Gusuario/consulta-usuario/consulta-usuario.component';
+import { ActualizaUsuarioComponent } from './components/Gusuario/actualiza-usuario/actualiza-usuario.component';
 
 
 
@@ -47,7 +47,6 @@ import { ConsultaUsuarioComponent } from './components/Gusuario/consulta-usuario
     HomeComponent,
     LoginComponent,
     FooterComponent,
-    HomeusuarioComponent,
     Home2Component,
     GhabitacionesComponent,
     GempleadosComponent,
@@ -71,6 +70,7 @@ import { ConsultaUsuarioComponent } from './components/Gusuario/consulta-usuario
     SignupComponent,
     RegistroUsuarioComponent,
     ConsultaUsuarioComponent,
+    ActualizaUsuarioComponent,
 
   ],
   imports: [
@@ -81,7 +81,7 @@ import { ConsultaUsuarioComponent } from './components/Gusuario/consulta-usuario
     AppRoutingModule,
     NgbModule
   ],
-  entryComponents: [AlertModalComponent],
+  entryComponents: [AlertModalComponent,ActualizaUsuarioComponent],
   providers: [UsuarioService],
   bootstrap: [AppComponent]
 })

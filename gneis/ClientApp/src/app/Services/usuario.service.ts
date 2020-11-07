@@ -44,4 +44,12 @@ export class UsuarioService {
     
   }
 
+  update(usuario : Usuario):Observable<string>{
+    return this.http.put<string>(this.baseUrl + 'api/Usuario', usuario)
+    .pipe(
+      tap(_ => this.handleErrorService.log('datos enviados')),
+      catchError(this.handleErrorService.handleError<string>('Actualizar Usuario', null))
+    );
+  }
+
 }
