@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Mostrarbotones } from '../../Models/mostrarbotones';
+import { Mostrarbotones } from '../../../Models/mostrarbotones';
 
 @Component({
   selector: 'app-nav-bar',

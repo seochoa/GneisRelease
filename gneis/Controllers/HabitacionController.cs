@@ -54,6 +54,13 @@ namespace gneis.Controllers
             return Ok(mensaje);
         }
 
+        [HttpPut]
+        public ActionResult<string> Update(HabitacionInputModel habitacionInput){
+            Habitacion habitacion = MapearHabitacion(habitacionInput);
+            string mensaje = _habitacionservice.Modificar(habitacion);
+            return Ok(mensaje);
+        }
+
         private Habitacion MapearHabitacion(HabitacionInputModel habitacionInput){
             var Habitacion = new Habitacion
             {

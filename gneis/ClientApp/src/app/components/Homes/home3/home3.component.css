@@ -1,0 +1,45 @@
+* {
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+    text-align: center;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+h1 {
+    padding-top: 50px;
+    color: #00BFA6;
+    font-family: 'Architects Daughter', cursive;
+}
+
+h3 {
+    padding-top: 10px;
+    color: #00BFA6;
+    font-family: 'Architects Daughter', cursive;
+}
+
+ul {
+    margin-right: 20px;
+}
+
+ul li {
+    display: inline-block;
+    margin: 0 50px;
+}
+
+#login {
+    background-color: #00BFA6;
+    color: white;
+}
+
+#login:hover {
+    background-color: #109281;
+}
+
+.col-sm-6 {
+    display: block;
+}

@@ -1,0 +1,48 @@
+<div class="modal-header animated fadeIn">
+    <h4 id="titulo" class="modal-title"><strong>Modificar Habitacion: {{habitacionvieja.idhabitacion}}</strong></h4>
+</div>
+<div class="modal-body animated fadeIn">
+    <div class="col col-sm-4 animated fadeIn fast">
+        <div class="container">
+
+            <div class="login-content">
+                <form [formGroup]="formGroup">
+                    <img src="assets/img/habitacion.svg">
+
+                    <div class="form-group">
+                        <h5 class="card-title"><strong>Tipo</strong></h5>
+                        <select class="form-control" name="tipo" id="tipo" [ngClass]="{'is-invalid':control.tipo.errors && control.tipo.touched}" formControlName="tipo">
+                            <option >Simple</option>
+                            <option >Doble</option>
+                            <option >Triple</option>
+                            <option >Familiar</option>
+                        </select>
+                        <div *ngIf="control.tipo.errors"  class="invalid-feedback">
+                            <div *ngIf="control.tipo.errors.required">
+                                Se requiere el Tipo de Habitacion
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="div">
+                            <input type="number" autocomplete="off" name="costo" class="input" placeholder="Costo" [ngClass]="{'is-invalid':control.costo.errors && control.costo.touched}" formControlName="costo">
+                        </div>
+                        <div *ngIf="control.costo.errors"  class="invalid-feedback">
+                            <div *ngIf="control.costo.errors.required">
+                                Se requiere el Costo de la Habitacion
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" id="login" class="btn btn-light" (click)="onUpdate()" [disabled]="formGroup.invalid" id="login">Actualizar</button>
+                    <button type="button"  class="btn btn-secondary"  (click)="activeModal.close('Close click')"> Cerrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

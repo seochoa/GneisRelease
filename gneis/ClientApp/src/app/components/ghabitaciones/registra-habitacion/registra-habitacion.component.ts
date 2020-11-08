@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Habitacion } from '../../Models/habitacion';
-import { HabitacionService } from '../../Services/habitacion.service';
-import { AlertModalComponent } from '../../@base/alert-modal/alert-modal.component';
+import { Habitacion } from '../../../Models/habitacion';
+import { HabitacionService } from '../../../Services/habitacion.service';
+import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.component';
+
 
 @Component({
-  selector: 'app-ghabitaciones',
-  templateUrl: './ghabitaciones.component.html',
-  styleUrls: ['./ghabitaciones.component.css']
+  selector: 'app-registra-habitacion',
+  templateUrl: './registra-habitacion.component.html',
+  styleUrls: ['./registra-habitacion.component.css']
 })
-export class GhabitacionesComponent implements OnInit {
+export class RegistraHabitacionComponent implements OnInit {
 
   formGroup: FormGroup;
-  searchhabitacion: string;
-  habitaciones : Habitacion[];
   habitacion : Habitacion;
-  idhabitacion : string;
 
   constructor(private habitacionService : HabitacionService,private formbuilder : FormBuilder,private modalService : NgbModal) { }
 
@@ -60,25 +58,10 @@ export class GhabitacionesComponent implements OnInit {
     this.habitacionService.post(this.habitacion).subscribe(p=>{
       if(p!=null){
         const menssageBox = this.modalService.open(AlertModalComponent)
-        menssageBox.componentInstance.title = "Resultado Operacion";
+        menssageBox.componentInstance.type = 'success';
         menssageBox.componentInstance.message = 'Habitacion registrada Correctamente';
          this.habitacion = p;
        }
-    });
-    this.onReset();
-  }
-
-  consultar(){
-    this.habitacionService.gets().subscribe(result =>{
-      this.habitaciones = result;
-    });
-  }
-
-  eliminar(){
-    this.habitacionService.delete(this.idhabitacion).subscribe(mensaje =>{
-      const menssageBox = this.modalService.open(AlertModalComponent)
-      menssageBox.componentInstance.title = "Resultado Operacion";
-      menssageBox.componentInstance.message = 'Habitacion Eliminada Correctamente';
     });
     this.onReset();
   }

@@ -1,0 +1,59 @@
+<app-nav-bar-emp></app-nav-bar-emp>
+<div class="col col-sm-4 animated fadeIn fast">
+    <div class="container">
+        <div class="img">
+            <img src="assets/img/habitacion.svg">
+        </div>
+        <div class="login-content">
+            <form [formGroup]="formGroup">
+
+                <h2 id="titulo" class="title">Registro De Habitaciones</h2>
+
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <input type="text" autocomplete="off" name="idhabitacion" class="input" placeholder="IDhabitacion" [ngClass]="{'is-invalid':control.idhabitacion.errors && control.idhabitacion.touched}" formControlName="idhabitacion">
+                        <div *ngIf="control.idhabitacion.errors"  class="invalid-feedback">
+                            <div *ngIf="control.idhabitacion.errors.required">
+                                Se requiere el ID de la Habitacion
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h5 class="card-title"><strong>Tipo</strong></h5>
+                    <select class="form-control" name="tipo" id="tipo" [ngClass]="{'is-invalid':control.tipo.errors && control.tipo.touched}" formControlName="tipo">
+                        <option >Simple</option>
+                        <option >Doble</option>
+                        <option >Triple</option>
+                        <option >Familiar</option>
+                    </select>
+                    <div *ngIf="control.tipo.errors"  class="invalid-feedback">
+                        <div *ngIf="control.tipo.errors.required">
+                            Se requiere el Tipo de Habitacion
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="div">
+                        <input type="number" autocomplete="off" name="costo" class="input" placeholder="Costo" [ngClass]="{'is-invalid':control.costo.errors && control.costo.touched}" formControlName="costo">
+                    </div>
+                    <div *ngIf="control.costo.errors"  class="invalid-feedback">
+                        <div *ngIf="control.costo.errors.required">
+                            Se requiere el Costo de la Habitacion
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" id="login" class="btn btn-light" (click)="onSave() " [disabled]="formGroup.invalid" id="login">Registrar</button>
+            </form>
+        </div>
+    </div>
+</div>

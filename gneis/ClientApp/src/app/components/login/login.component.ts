@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild,Output,EventEmitter } from '@angular/core';
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { NavBarComponent } from '../nav-Bars/nav-bar/nav-bar.component';
 import { Usuario } from '../../Models/usuario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../../Services/usuario.service';

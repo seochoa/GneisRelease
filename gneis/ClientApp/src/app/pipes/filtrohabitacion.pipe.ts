@@ -10,7 +10,8 @@ export class FiltrohabitacionPipe implements PipeTransform {
     if (searchText == null) return Habitacion;
     return Habitacion.filter(p =>
       p.idhabitacion.toLowerCase()
-      .indexOf(searchText.toLowerCase()) !== -1);
+      .indexOf(searchText.toLowerCase()) !== -1 || 
+      p.tipo.indexOf(searchText) !== -1 );
     }
 
 }

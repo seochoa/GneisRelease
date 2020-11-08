@@ -44,4 +44,12 @@ export class HabitacionService {
     );
     
   }
+
+  update(habitacion : Habitacion):Observable<string>{
+    return this.http.put<string>(this.baseUrl + 'api/Habitacion', habitacion)
+    .pipe(
+      tap(_ => this.handleErrorService.log('datos enviados')),
+      catchError(this.handleErrorService.handleError<string>('Actualizar Habitacion', null))
+    );
+  }
 }
