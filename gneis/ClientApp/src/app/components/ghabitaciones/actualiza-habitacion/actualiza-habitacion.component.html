@@ -30,10 +30,10 @@
                         </div>
                         <div class="div">
                             <input type="number" autocomplete="off" name="costo" class="input" placeholder="Costo" [ngClass]="{'is-invalid':control.costo.errors && control.costo.touched}" formControlName="costo">
-                        </div>
-                        <div *ngIf="control.costo.errors"  class="invalid-feedback">
-                            <div *ngIf="control.costo.errors.required">
-                                Se requiere el Costo de la Habitacion
+                            <div *ngIf="control.costo.errors"  class="invalid-feedback">
+                                <div *ngIf="control.costo.errors.required">
+                                    Se requiere el Costo de la Habitacion
+                                </div>
                             </div>
                         </div>
                     </div>

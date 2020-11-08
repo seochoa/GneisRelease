@@ -43,4 +43,12 @@ export class ProductoService {
     );
     
   }
+
+  update(producto : Producto):Observable<string>{
+    return this.http.put<string>(this.baseUrl + 'api/Producto', producto)
+    .pipe(
+      tap(_ => this.handleErrorService.log('datos enviados')),
+      catchError(this.handleErrorService.handleError<string>('Actualizar Producto', null))
+    );
+  }
 }

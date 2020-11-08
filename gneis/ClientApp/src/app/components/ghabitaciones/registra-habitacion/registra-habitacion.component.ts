@@ -26,7 +26,7 @@ export class RegistraHabitacionComponent implements OnInit {
     this.habitacion = new Habitacion();
     this.habitacion.idhabitacion = '';
     this.habitacion.tipo = '';
-    this.habitacion.costo = 0;
+    this.habitacion.costo = null;
 
     this.formGroup = this.formbuilder.group({
       idhabitacion   :[this.habitacion.idhabitacion, Validators.required],

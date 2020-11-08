@@ -1,0 +1,37 @@
+<app-nav-bar-emp></app-nav-bar-emp><br>
+<div class="container">
+    <h2 id="titulo" class="title">Listado de Productos</h2>
+    <input autocomplete="off" type="text " class="email" name="search" placeholder="Search" [(ngModel)]="searchproducto">
+
+</div>
+<br>
+<br>
+
+<div class="container">
+    <td><button id="eliminar" type="button" class="btn btn-light" (click)="consultar()"><i class="fas fa-redo-alt"></i></button></td>
+    <br>
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col ">#</th>
+                <th scope="col ">IDProducto</th>
+                <th scope="col ">Descripcion</th>
+                <th scope="col ">Stock</th>
+                <th scope="col ">Valor Unitario</th>
+                <th scope="col ">Eliminar</th>
+                <th scope="col ">Modificar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos|filtroproducto:searchproducto; index as i ">
+                <th scope="row ">{{i+1}}</th>
+                <td><strong>{{producto.idproducto}}</strong></td>
+                <td><strong>{{producto.descripcion}}</strong></td>
+                <td><strong>{{producto.stock}}</strong></td>
+                <td><strong>{{producto.vrunitario|currency:'COP$ ':'symbol':'.0-0'}}</strong></td>
+                <td><button id="eliminar" type="button" class="btn btn-light" (click)="eliminar(producto.idproducto)"><i class="fas fa-minus-circle"></i> Eliminar</button></td>
+                <td><button type="button" class="btn btn-secondary" (click)="actualizar(producto)"><i class="fas fa-edit"></i> Modificar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

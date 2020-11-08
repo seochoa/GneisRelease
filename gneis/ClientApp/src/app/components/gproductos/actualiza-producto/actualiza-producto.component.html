@@ -1,0 +1,61 @@
+<div class="modal-header animated fadeIn">
+    <h4 id="titulo" class="modal-title"><strong>Modificar Producto: {{productoviejo.idproducto}}</strong></h4>
+</div>
+<div class="modal-body animated fadeIn">
+    <div class="col col-sm-4 animated fadeIn fast">
+        <div class="container">
+
+            <div class="login-content">
+                <form [formGroup]="formGroup">
+                    <img src="assets/img/producto.svg">
+
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="fas fa-bread-slice"></i>
+                        </div>
+                        <div class="div">
+                            <input type="text" autocomplete="off" name="descripcion" class="input" placeholder="Descripcion" [ngClass]="{'is-invalid':control.descripcion.errors && control.descripcion.touched}" formControlName="descripcion">
+                            <div *ngIf="control.descripcion.errors"  class="invalid-feedback">
+                                <div *ngIf="control.descripcion.errors.required">
+                                    Se requiere la descripcion del Producto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-sort-numeric-up"></i>
+                        </div>
+                        <div class="div">
+                            <input type="number" autocomplete="off" name="stock" class="input" placeholder="Cantidad Stock" [ngClass]="{'is-invalid':control.stock.errors && control.stock.touched}" formControlName="stock">
+                            <div *ngIf="control.stock.errors"  class="invalid-feedback">
+                                <div *ngIf="control.stock.errors.required">
+                                    Se requiere el stock del Producto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="div">
+                            <input type="number" autocomplete="off" name="vrunitario" class="input" placeholder="Vr Unitario" [ngClass]="{'is-invalid':control.vrunitario.errors && control.vrunitario.touched}" formControlName="vrunitario">
+                            <div *ngIf="control.vrunitario.errors"  class="invalid-feedback">
+                                <div *ngIf="control.vrunitario.errors.required">
+                                    Se requiere el Valor unitario del Producto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" id="login" class="btn btn-light" (click)="onUpdate()" [disabled]="formGroup.invalid" id="login">Actualizar</button>
+                    <button type="button"  class="btn btn-secondary"  (click)="activeModal.close('Close click')"> Cerrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

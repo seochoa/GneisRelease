@@ -54,6 +54,13 @@ namespace gneis.Controllers
             return Ok(mensaje);
         }
 
+        [HttpPut]
+        public ActionResult<string> Update(ProductoInputModel productoInput){
+            Producto producto = MapearProducto(productoInput);
+            string mensaje = _productoservice.Modificar(producto);
+            return Ok(mensaje);
+        }
+
         
 
         private Producto MapearProducto(ProductoInputModel productoInput){

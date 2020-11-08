@@ -10,7 +10,9 @@ export class FiltroproductoPipe implements PipeTransform {
     if (searchText == null) return Producto;
     return Producto.filter(p =>
       p.idproducto.toLowerCase()
-      .indexOf(searchText.toLowerCase()) !== -1);
+      .indexOf(searchText.toLowerCase()) !== -1 || 
+      p.descripcion.toLowerCase()
+      .indexOf(searchText.toLowerCase()) !== -1  );
     }
 
 }

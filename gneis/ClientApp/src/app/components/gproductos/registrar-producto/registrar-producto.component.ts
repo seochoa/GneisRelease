@@ -1,23 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto } from '../../Models/producto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductoService } from '../../Services/producto.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AlertModalComponent } from '../../@base/alert-modal/alert-modal.component';
+import { Producto } from '../../../Models/producto';
+import { ProductoService } from '../../../Services/producto.service';
+import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.component';
 
 @Component({
-  selector: 'app-gproductos',
-  templateUrl: './gproductos.component.html',
-  styleUrls: ['./gproductos.component.css']
+  selector: 'app-registrar-producto',
+  templateUrl: './registrar-producto.component.html',
+  styleUrls: ['./registrar-producto.component.css']
 })
-export class GproductosComponent implements OnInit {
+export class RegistrarProductoComponent implements OnInit {
 
   formGroup: FormGroup;
-  searchproducto: string;
-  productos : Producto[];
   producto : Producto;
-  idproducto : string;
-
+  
   constructor(private productoService : ProductoService, private formbuilder : FormBuilder,private modalService : NgbModal) { }
 
   ngOnInit(): void {
@@ -28,8 +25,8 @@ export class GproductosComponent implements OnInit {
     this.producto = new Producto();
     this.producto.idproducto = '';
     this.producto.descripcion = '';
-    this.producto.stock = 0;
-    this.producto.vrunitario = 0;
+    this.producto.stock = null;
+    this.producto.vrunitario = null;
 
     this.formGroup = this.formbuilder.group({
       idproducto      :[this.producto.idproducto, Validators.required],
@@ -59,25 +56,10 @@ export class GproductosComponent implements OnInit {
     this.productoService.post(this.producto).subscribe(p=>{
       if(p!=null){
         const menssageBox = this.modalService.open(AlertModalComponent)
-        menssageBox.componentInstance.title = "Resultado Operacion";
+        menssageBox.componentInstance.type = "success";
         menssageBox.componentInstance.message = 'Producto registrado Correctamente';
         this.producto = p;
       }
-    });
-    this.onReset();
-  }
-
-  consultar(){
-    this.productoService.gets().subscribe(result =>{
-      this.productos = result;
-    });
-  }
-
-  eliminar(){
-    this.productoService.delete(this.idproducto).subscribe(mensaje =>{
-      const menssageBox = this.modalService.open(AlertModalComponent)
-      menssageBox.componentInstance.title = "Resultado Operacion";
-      menssageBox.componentInstance.message = 'Producto Eliminado Correctamente';
     });
     this.onReset();
   }

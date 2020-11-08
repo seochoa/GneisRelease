@@ -57,6 +57,27 @@ namespace Logica
                 return $"Error de la aplicacion: {e.Message}";
             }
         }
+
+        public string Modificar (Producto productonuevo){
+            try{
+                var Productoviejo = _context.Productos.Find(productonuevo.Idproducto);
+                if(Productoviejo !=null){
+                    Productoviejo.Idproducto = productonuevo.Idproducto;
+                    Productoviejo.Descripcion = productonuevo.Descripcion;
+                    Productoviejo.Stock = productonuevo.Stock;
+                    Productoviejo.Vrunitario = productonuevo.Vrunitario;
+                    _context.Productos.Update(Productoviejo);
+                    _context.SaveChanges();
+                    return ($"El registro se ha Actualizado sastifactoriamente.");
+                }
+                else{
+                    return ($"La Identificacion no se encuentra en nuestra base de datos");
+                }
+            }
+            catch(Exception e){
+                return $"Error de la aplicacion: {e.Message}";
+            }
+        }
         
     }
 
