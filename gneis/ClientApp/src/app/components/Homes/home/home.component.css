@@ -6,13 +6,14 @@
 }
 
 img {
-    width: 250px;
-    height: 250px;
+    width: 1300px;
+    height: 500px;
+    display: inline-block;
 }
 
 h1 {
     padding-top: 50px;
-    color: #00BFA6;
+    color: rgb(255, 251, 251);
     font-family: 'Architects Daughter', cursive;
 }
 
@@ -47,4 +48,9 @@ ul li {
 button {
     margin: 10px;
     text-transform: uppercase;
+}
+
+.carousel-caption {
+    font-size: xx-large;
+    background-color: rgba(0, 0, 0, 0.424);
 }

@@ -1,21 +1,50 @@
 <app-nav-bar></app-nav-bar>
 <div class="row animated fadeIn fast">
     <div class="col">
-        <ul>
-            <li id="col">
-                <div class="img">
-                    <img src="assets/img/hotel.svg">
-                </div>
-            </li>
-            <li id="col">
-                <div class="container">
-                    <h1>GNEIS APP WEB</h1>
-                    <p>Aplicativo Web para la Gestion de Recuros del hotel Neruda</p>
-                    <button type="button" id="login" class="btn btn-light" [routerLink]="['/login']" id="login">Login</button>
-                    <button type="button" id="singup" class="btn btn-secondary" [routerLink]="['/signup']">Sign Up</button>
-                </div>
-            </li>
-        </ul>
+        <div class="img">
+            <ngb-carousel>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/img/fachada.jpg" alt="Random first slide" id="carrusel">
+                    </div>
+                    <div class="carousel-caption">
+                        <h1><strong>GNEIS APP WEB</strong></h1>
+                        <p id="subittulo">Aplicativo Web para la Gestion de Recuros del hotel Neruda</p>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/img/interior.jpg" alt="Random second slide" id="carrusel">
+                    </div>
+                    <div class="carousel-caption">
+                        <h1><strong>GNEIS APP WEB</strong></h1>
+                        <p id="subittulo">Aplicativo Web para la Gestion de Recuros del hotel Neruda</p>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/img/habitacion1.jpg" alt="Random third slide" id="carrusel">
+                    </div>
+                    <div class="carousel-caption">
+                        <h1><strong>GNEIS APP WEB</strong></h1>
+                        <p id="subittulo">Aplicativo Web para la Gestion de Recuros del hotel Neruda</p>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/img/habitacion2.jpg" alt="Random third slide" id="carrusel">
+                    </div>
+                    <div class="carousel-caption">
+                        <h1><strong>GNEIS APP WEB</strong></h1>
+                        <p id="subittulo">Aplicativo Web para la Gestion de Recuros del hotel Neruda</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+        <div class="container">
+            <button type="button" id="login" class="btn btn-light" [routerLink]="['/login']" id="login">Login</button>
+            <button type="button" id="singup" class="btn btn-secondary" [routerLink]="['/signup']">Sign Up</button>
+        </div>
         <h3>¿PARA QUE SIRVE?</h3>
         <p>El Aplicativo Tiene como principal objetivo frecer a los empleados del hotel <br> una manera práctica y eficaz de realizar las reservaciones e incluso Podrán <br> gestionar sus clientes asi como las habitaciones o el catálogo de productos<br>            que el hotel puede ofrecer a quienes se hospedan en el.
         </p>
