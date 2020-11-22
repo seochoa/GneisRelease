@@ -5,6 +5,7 @@ import { Habitacion } from 'src/app/Models/habitacion';
 import { HabitacionService } from '../../../Services/habitacion.service';
 import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.component';
 import { ActualizaHabitacionComponent } from '../actualiza-habitacion/actualiza-habitacion.component';
+import { EliminaHabitacionComponent } from '../elimina-habitacion/elimina-habitacion.component';
 
 @Component({
   selector: 'app-consulta-habitacion',
@@ -26,13 +27,10 @@ export class ConsultaHabitacionComponent implements OnInit {
     });
   }
 
-  eliminar(idhabitacion: string){
-    this.habitacionService.delete(idhabitacion).subscribe(mensaje =>{
-      const menssageBox = this.modalService.open(AlertModalComponent)
-      menssageBox.componentInstance.type = 'danger';
-      menssageBox.componentInstance.message = 'Habitacion Eliminada Correctamente';
-      this.consultar();
-    });
+  eliminar(habitacion: Habitacion){
+    const menssageBox = this.modalService.open(EliminaHabitacionComponent);
+    menssageBox.componentInstance.habitacion = habitacion;
+    this.consultar();
   }
 
   actualizar(habitacion: Habitacion){

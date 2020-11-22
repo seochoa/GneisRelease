@@ -1,0 +1,15 @@
+<div class="modal-header animated fadeIn">
+    <h4 id="titulo" class="modal-title"><strong>Seguro de eliminar al producto N°: {{producto.idproducto}}</strong></h4>
+</div>
+<div class="modal-body animated fadeIn">
+    <div class="col col-sm-4 animated fadeIn fast">
+        <div class="container">
+            <p><strong>ID PRODUCTO:</strong> {{producto.idproducto}}</p>
+            <p><strong>DESCRIPCION:</strong> {{producto.descripcion}}</p>
+            <p><strong>STOCK:</strong> {{producto.stock}}</p>
+            <p><strong>VR UNITARIO:</strong> {{producto.vrunitario|currency:'COP$ ':'symbol':'.0-0'}}</p>
+            <button type="button" id="login" class="btn btn-light" (click)="eliminar()">Eliminar</button>
+            <button type="button"  class="btn btn-secondary"  (click)="activeModal.close('Close click')"> Cancelar</button>
+        </div>
+    </div>
+</div>

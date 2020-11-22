@@ -1,0 +1,32 @@
+#titulo {
+    color: #00BFA6;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.container {
+    text-align: justify;
+    width: 100vw;
+    height: 45vh;
+    padding: 0 2rem;
+    font-size: large;
+}
+
+#login {
+    background-color: #00BFA6;
+    color: white;
+}
+
+#login:hover {
+    background-color: #109281;
+}
+
+button {
+    margin: 5px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+strong {
+    color: #00BFA6;
+    font-family: 'Architects Daughter', cursive;
+}

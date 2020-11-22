@@ -4,6 +4,7 @@ import { Producto } from '../../../Models/producto';
 import { ProductoService } from '../../../Services/producto.service';
 import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.component';
 import { ActualizaProductoComponent } from '../actualiza-producto/actualiza-producto.component';
+import { EliminaProductoComponent } from '../elimina-producto/elimina-producto.component';
 
 @Component({
   selector: 'app-consulta-producto',
@@ -25,13 +26,10 @@ export class ConsultaProductoComponent implements OnInit {
     });
   }
 
-  eliminar(idproducto :string){
-    this.productoService.delete(idproducto).subscribe(mensaje =>{
-      const menssageBox = this.modalService.open(AlertModalComponent)
-      menssageBox.componentInstance.type = 'danger';
-      menssageBox.componentInstance.message = 'Producto Eliminado Correctamente';
-      this.consultar();
-    });
+  eliminar(producto :Producto){
+    const menssageBox = this.modalService.open(EliminaProductoComponent)
+    menssageBox.componentInstance.producto = producto;
+    
   }
 
   actualizar(producto : Producto){

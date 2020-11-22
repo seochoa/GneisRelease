@@ -1,0 +1,16 @@
+<div class="modal-header animated fadeIn">
+    <h4 id="titulo" class="modal-title"><strong>Seguro de eliminar a la habitacion N°: {{habitacion.idhabitacion}}</strong></h4>
+</div>
+<div class="modal-body animated fadeIn">
+    <div class="col col-sm-4 animated fadeIn fast">
+        <div class="container">
+            <p><strong>ID HABITACION:</strong> {{habitacion.idhabitacion}}</p>
+            <p><strong>TiPO HABITACION:</strong> {{habitacion.tipo}}</p>
+            <p><strong>COSTO:</strong> {{habitacion.costo}}</p>
+            <p><strong>ESTADO:</strong> {{habitacion.estado}}</p>
+            <p><strong>USOS:</strong> {{habitacion.usos}}</p>
+            <button type="button" id="login" class="btn btn-light" (click)="eliminar()">Eliminar</button>
+            <button type="button"  class="btn btn-secondary"  (click)="activeModal.close('Close click')"> Cancelar</button>
+        </div>
+    </div>
+</div>

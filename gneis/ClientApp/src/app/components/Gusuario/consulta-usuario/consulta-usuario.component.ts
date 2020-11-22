@@ -5,6 +5,7 @@ import { Usuario } from '../../../Models/usuario';
 import { UsuarioService } from '../../../Services/usuario.service';
 import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.component';
 import { ActualizaUsuarioComponent } from '../actualiza-usuario/actualiza-usuario.component';
+import { EliminaUsuarioComponent } from '../elimina-usuario/elimina-usuario.component';
 
 @Component({
   selector: 'app-consulta-usuario',
@@ -27,13 +28,10 @@ export class ConsultaUsuarioComponent implements OnInit {
     });
   }
 
-  eliminar(iduser: string){
-    this.usuarioService.delete(iduser).subscribe(mensaje =>{
-      const menssageBox = this.modalService.open(AlertModalComponent)
-      menssageBox.componentInstance.type = 'danger';
-      menssageBox.componentInstance.message = 'Usuario Eliminado Correctamente';
-      this.consultar();
-    });
+  eliminar(usuario: Usuario){
+    const menssageBox = this.modalService.open(EliminaUsuarioComponent);
+    menssageBox.componentInstance.usuarioeliminar= usuario;
+    
     
   }
 

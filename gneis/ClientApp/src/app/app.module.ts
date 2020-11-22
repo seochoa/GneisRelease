@@ -23,16 +23,19 @@ import { Home4Component } from './components/Homes/home4/home4.component';
 import { RegistroUsuarioComponent } from './components/Gusuario/registro-usuario/registro-usuario.component';
 import { ConsultaUsuarioComponent } from './components/Gusuario/consulta-usuario/consulta-usuario.component';
 import { ActualizaUsuarioComponent } from './components/Gusuario/actualiza-usuario/actualiza-usuario.component';
+import { EliminaUsuarioComponent } from './components/Gusuario/elimina-usuario/elimina-usuario.component';
 
 //Ghabitaciones
 import { RegistraHabitacionComponent } from './components/ghabitaciones/registra-habitacion/registra-habitacion.component';
 import { ConsultaHabitacionComponent } from './components/ghabitaciones/consulta-habitacion/consulta-habitacion.component';
 import { ActualizaHabitacionComponent } from './components/ghabitaciones/actualiza-habitacion/actualiza-habitacion.component';
+import { EliminaHabitacionComponent } from './components/ghabitaciones/elimina-habitacion/elimina-habitacion.component';
 
 //Gproductos
 import { ActualizaProductoComponent } from './components/gproductos/actualiza-producto/actualiza-producto.component';
 import { ConsultaProductoComponent } from './components/gproductos/consulta-producto/consulta-producto.component';
 import { RegistrarProductoComponent } from './components/gproductos/registrar-producto/registrar-producto.component';
+import { EliminaProductoComponent } from './components/gproductos/elimina-producto/elimina-producto.component';
 
 //Pipes
 import { FiltroUsuarioPipe } from './pipes/filtro-usuario.pipe';
@@ -58,6 +61,10 @@ import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
 import { UsuarioService } from './Services/usuario.service';
 import { HabitacionService } from './Services/habitacion.service';
 import { ProductoService } from './Services/producto.service';
+
+
+
+
 
 
 @NgModule({
@@ -94,6 +101,10 @@ import { ProductoService } from './Services/producto.service';
     ActualizaProductoComponent,
     ConsultaProductoComponent,
     RegistrarProductoComponent,
+    EliminaUsuarioComponent,
+    EliminaProductoComponent,
+    EliminaHabitacionComponent,
+    
 
   ],
   imports: [
@@ -108,7 +119,11 @@ import { ProductoService } from './Services/producto.service';
     AlertModalComponent,
     ActualizaUsuarioComponent,
     ActualizaHabitacionComponent,
-    ActualizaProductoComponent],
+    ActualizaProductoComponent,
+    EliminaUsuarioComponent,
+    EliminaProductoComponent,
+    EliminaHabitacionComponent],
+    
   providers: [
     UsuarioService,
     HabitacionService,
