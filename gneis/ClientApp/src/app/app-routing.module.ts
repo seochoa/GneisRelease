@@ -22,6 +22,8 @@ import { RegistraHabitacionComponent } from './components/ghabitaciones/registra
 import { ConsultaHabitacionComponent } from './components/ghabitaciones/consulta-habitacion/consulta-habitacion.component';
 import { RegistrarProductoComponent } from './components/gproductos/registrar-producto/registrar-producto.component';
 import { ConsultaProductoComponent } from './components/gproductos/consulta-producto/consulta-producto.component';
+import { RegistraReservaComponent } from './components/greservas/registra-reserva/registra-reserva.component';
+import { ConsultarDiponibilidadComponent } from './components/greservas/consultar-diponibilidad/consultar-diponibilidad.component';
 
 
 
@@ -42,7 +44,10 @@ const routes: Routes=[
 
   {path: "RegistroP" , component: RegistrarProductoComponent},
   {path: "ConsultaP" , component: ConsultaProductoComponent},
-  
+
+  {path: "RegistroRU" , component: RegistraReservaComponent},
+  {path: "ConsultaDH" , component: ConsultarDiponibilidadComponent},
+
   {path: "empleados" , component: GempleadosComponent},
   {path: "reservas" , component: GreservasComponent},
   {path: "clientes" , component: GclientesComponent},

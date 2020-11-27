@@ -1,0 +1,29 @@
+<app-nav-bar-user></app-nav-bar-user><br>
+<div class="container">
+    <h2 id="titulo" class="title">Listado de Habitaciones Diponibles</h2>
+</div>
+<br>
+<br>
+
+<div class="container">
+
+    <br>
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col ">#</th>
+                <th scope="col ">IDHabitacion</th>
+                <th scope="col ">Tipo</th>
+                <th scope="col ">Costo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let habitacion of habitacionesfiltradas ; index as i ">
+                <th scope="row ">{{i+1}}</th>
+                <td><strong>{{habitacion.idhabitacion}}</strong></td>
+                <td><strong>{{habitacion.tipo}}</strong></td>
+                <td><strong>{{habitacion.costo|currency:'COP$ ':'symbol':'.0-0'}}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

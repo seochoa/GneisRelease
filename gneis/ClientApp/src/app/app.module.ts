@@ -62,6 +62,10 @@ import { UsuarioService } from './Services/usuario.service';
 import { HabitacionService } from './Services/habitacion.service';
 import { ProductoService } from './Services/producto.service';
 
+import { RegistraReservaComponent } from './components/greservas/registra-reserva/registra-reserva.component';
+import { ConsultarDiponibilidadComponent } from './components/greservas/consultar-diponibilidad/consultar-diponibilidad.component';
+import { Filtrohabitacion2Pipe } from './pipes/filtrohabitacion2.pipe';
+
 
 
 
@@ -104,6 +108,9 @@ import { ProductoService } from './Services/producto.service';
     EliminaUsuarioComponent,
     EliminaProductoComponent,
     EliminaHabitacionComponent,
+    RegistraReservaComponent,
+    ConsultarDiponibilidadComponent,
+    Filtrohabitacion2Pipe,
     
 
   ],

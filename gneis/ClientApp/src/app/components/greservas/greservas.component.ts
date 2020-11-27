@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Reserva } from '../../Models/reserva';
 
 @Component({
   selector: 'app-greservas',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./greservas.component.css']
 })
 export class GreservasComponent implements OnInit {
-
+  
+  
+  
   constructor() { }
 
   ngOnInit(): void {

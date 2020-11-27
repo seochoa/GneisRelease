@@ -1,0 +1,215 @@
+<app-nav-bar-user></app-nav-bar-user>
+<div class="col col-sm-4 animated fadeIn fast">
+    <div class="container">
+        <div class="login-content">
+            <form [formGroup]="formGroupcliente">
+                <h2 id="titulo" class="title">Reservar Habitacion</h2>
+
+                <h3>Datos Personales</h3>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title"><strong>Cedula</strong></h5>
+                        <div class="input-div one">
+                            <div class="i">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div class="div">
+                                <input type="text" autocomplete="off" name="Cedula" class="input" placeholder="Cedula" [ngClass]="{'is-invalid':control.cedula.errors && control.cedula.touched}" formControlName="cedula">
+                                <div *ngIf="control.cedula.errors"  class="invalid-feedback">
+                                    <div *ngIf="control.cedula.errors.required">
+                                        Se requiere el cedula del Cliente
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title"><strong>Nombre</strong></h5>
+                        <div class="input-div one">
+                            <div class="i">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="div">
+                                <input type="text" autocomplete="off" name="Nombre" class="input" placeholder="Nombre" [ngClass]="{'is-invalid':control.nombre.errors && control.nombre.touched}" formControlName="nombre">
+                                <div *ngIf=" control.nombre.errors "  class="invalid-feedback ">
+                                    <div *ngIf="control.nombre.errors.required ">
+                                        Se requiere el nombre del Cliente
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Direccion</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-map-marker-alt "></i>
+                            </div>
+                            <div class="div ">
+                                <input type="text " autocomplete="off" name="Direccion" class="input" placeholder="Direccion" [ngClass]="{'is-invalid':control.direccion.errors && control.direccion.touched}" formControlName="direccion">
+                                <div *ngIf=" control.direccion.errors "  class="invalid-feedback ">
+                                    <div *ngIf="control.direccion.errors.required ">
+                                        Se requiere el direccion del Cliente
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row ">
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Edad</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-sort-numeric-up "></i>
+                            </div>
+                            <div class="div ">
+                                <input type="number" autocomplete="off" name="Edad " class="input " placeholder="Edad " [ngClass]="{'is-invalid':control.edad.errors && control.edad.touched}" formControlName="edad">
+                                <div *ngIf=" control.edad.errors "  class="invalid-feedback ">
+                                    <div *ngIf="control.edad.errors.required ">
+                                        Se requiere el edad del Cliente
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Sexo</strong></h5>
+                        <select class="form-control " name="sexo" id="sexo" [ngClass]="{'is-invalid':control.sexo.errors && control.sexo.touched}" formControlName="sexo">
+                            <option >F</option>
+                            <option >M</option>
+                        </select>
+                        <div *ngIf=" control.sexo.errors"  class="invalid-feedback ">
+                            <div *ngIf="control.sexo.errors.required ">
+                                Se requiere el sexo del Cliente
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ">
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Telefono</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-mobile-alt "></i>
+                            </div>
+                            <div class="div ">
+                                <input type="number" autocomplete="off" name="Telefono " class="input " placeholder="Telefono " [ngClass]="{'is-invalid':control.telefono.errors && control.telefono.touched}" formControlName="telefono">
+                                <div *ngIf=" control.telefono.errors"  class="invalid-feedback ">
+                                    <div *ngIf="control.telefono.errors.required ">
+                                        Se requiere el telefono del Cliente
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Correo</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-at "></i>
+                            </div>
+                            <div class="div ">
+                                <input type="text" autocomplete="off" name="Correo " class="input " placeholder="Correo " [ngClass]="{'is-invalid':control.correo.errors && control.correo.touched}" formControlName="correo">
+                                <div *ngIf=" control.correo.errors"  class="invalid-feedback ">
+                                    <div *ngIf="control.correo.errors.required ">
+                                        Se requiere el correo del Cliente
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="login-content">
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title "><strong>Habitaciones Diponibles</strong></h5>
+                        <select class=" form-control " name="idhabitacion" [(ngModel)]="idhabitacion">
+                            <option *ngFor="let habitacion of habitacionesfiltradas">{{habitacion.idhabitacion}}</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="login-content ">
+            <form [formGroup]="formGroupreserva">
+
+                <h3>Datos Reserva</h3>
+                <br>
+                <div class="row ">
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Id Reserva</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-concierge-bell "></i>
+                            </div>
+                            <div class="div ">
+                                <input type="text" autocomplete="off" name="IdReserva " class="input " placeholder="IdReserva " [ngClass]="{'is-invalid':control2.idreserva.errors && control2.idreserva.touched}" formControlName="idreserva">
+                                <div *ngIf=" control2.idreserva.errors"  class="invalid-feedback ">
+                                    <div *ngIf="control2.idreserva.errors.required ">
+                                        Se requiere el id de reserva
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>N° Acompañantes</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-users "></i>
+                            </div>
+                            <div class="div ">
+                                <input type="number" autocomplete="off" name="N°Acompañantes " class="input " placeholder="N°Acompañantes " [ngClass]="{'is-invalid':control2.numeroinvitados.errors && control2.numeroinvitados.touched}" formControlName="numeroinvitados">
+                                <div *ngIf=" control2.numeroinvitados.errors"  class="invalid-feedback ">
+                                    <div *ngIf="control2.numeroinvitados.errors.required ">
+                                        Se requiere el N° Invitados
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Fecha Reserva</strong></h5>
+                        <input type="date" autocomplete="off" name="fecha de reserva " class="form-control" [ngClass]="{'is-invalid':control2.fechareserva.errors && control2.fechareserva.touched}" formControlName="fechareserva">
+                        <div *ngIf=" control2.fechareserva.errors"  class="invalid-feedback ">
+                            <div *ngIf="control2.fechareserva.errors.required ">
+                                Se requiere el fecha de reserva
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center ">
+                    <button type="button" class="btn btn-light" (click)="onSave() " [disabled]="formGroupcliente.invalid || formGroupreserva.invalid" id="login">Registrar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>
