@@ -69,6 +69,11 @@ import { ConsultaEmpleadoComponent } from './components/gempleados/consulta-empl
 import { EliminaEmpleadoComponent } from './components/gempleados/elimina-empleado/elimina-empleado.component';
 import { ActualizaEmpleadoComponent } from './components/gempleados/actualiza-empleado/actualiza-empleado.component';
 import { VerinfoEmpleadoComponent } from './components/gempleados/verinfo-empleado/verinfo-empleado.component';
+import { VerinfoClienteComponent } from './components/gclientes/verinfo-cliente/verinfo-cliente.component';
+import { RegistroClienteComponent } from './components/gclientes/registro-cliente/registro-cliente.component';
+import { ConsultaClienteComponent } from './components/gclientes/consulta-cliente/consulta-cliente.component';
+import { ActualizaClienteComponent } from './components/gclientes/actualiza-cliente/actualiza-cliente.component';
+import { FiltroclientePipe } from './pipes/filtrocliente.pipe';
 
 
 
@@ -119,6 +124,11 @@ import { VerinfoEmpleadoComponent } from './components/gempleados/verinfo-emplea
     EliminaEmpleadoComponent,
     ActualizaEmpleadoComponent,
     VerinfoEmpleadoComponent,
+    VerinfoClienteComponent,
+    RegistroClienteComponent,
+    ConsultaClienteComponent,
+    ActualizaClienteComponent,
+    FiltroclientePipe,
   ],
   imports: [
     ReactiveFormsModule,
@@ -134,11 +144,13 @@ import { VerinfoEmpleadoComponent } from './components/gempleados/verinfo-emplea
     ActualizaHabitacionComponent,
     ActualizaProductoComponent,
     ActualizaEmpleadoComponent,
+    ActualizaClienteComponent,
     EliminaUsuarioComponent,
     EliminaProductoComponent,
     EliminaHabitacionComponent,
     EliminaEmpleadoComponent,
-    VerinfoEmpleadoComponent],
+    VerinfoEmpleadoComponent,
+    VerinfoClienteComponent],
     
   providers: [
     UsuarioService,

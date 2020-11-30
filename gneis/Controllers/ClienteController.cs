@@ -44,6 +44,13 @@ namespace gneis.Controllers
             return Ok(mensaje);
         }
 
+        [HttpPut]
+        public ActionResult<string> Update(ClienteInputModel clienteInput){
+            Cliente cliente = MapearCliente(clienteInput);
+            string mensaje = _clienteservice.Modificar(cliente);
+            return Ok(mensaje);
+        }
+
         private Cliente MapearCliente(ClienteInputModel clienteInput){
             var Cliente = new Cliente
             {

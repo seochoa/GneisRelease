@@ -27,4 +27,22 @@ export class ClienteService {
             catchError(this.handleErrorService.handleError<Cliente>('Registrar cliente', null))
         );
   }
+
+  gets(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.baseUrl + 'api/Cliente')
+        .pipe(
+            tap(_ => this.handleErrorService.log('datos enviados')),
+            catchError(this.handleErrorService.handleError<Cliente[]>('Consulta cliente', null))
+        );
+  }
+
+  update(cliente : Cliente):Observable<string>{
+    return this.http.put<string>(this.baseUrl + 'api/Cliente', cliente)
+    .pipe(
+      tap(_ => this.handleErrorService.log('datos enviados')),
+      catchError(this.handleErrorService.handleError<string>('Actualizar cliente', null))
+    );
+  }
+
+  
 }

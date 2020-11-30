@@ -1,0 +1,39 @@
+<app-nav-bar-emp></app-nav-bar-emp>
+<br>
+
+<div class="container">
+    <h2 id="titulo" class="title">Listado de Clientes</h2>
+    <input autocomplete="off" type="text " class="email" name="search" placeholder="Search" [(ngModel)]="searchuser">
+
+</div>
+<br>
+<br>
+
+<div class="container">
+    <td><button id="eliminar" type="button" class="btn btn-light" (click)="consultar()"><i class="fas fa-redo-alt"></i></button></td>
+    <br>
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col ">#</th>
+                <th scope="col ">Cedula</th>
+                <th scope="col ">Nombre</th>
+                <th scope="col ">Edad</th>
+                <th scope="col ">Sexo</th>
+                <th scope="col ">Ver Informacion</th>
+                <th scope="col ">Modificar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes|filtrocliente:searchuser; index as i ">
+                <th scope="row ">{{i+1}}</th>
+                <td><strong>{{cliente.cedula}}</strong></td>
+                <td><strong>{{cliente.nombre}}</strong></td>
+                <td><strong>{{cliente.edad}}</strong></td>
+                <td><strong>{{cliente.sexo}}</strong></td>
+                <td><button id="eliminar" type="button" class="btn btn-light" (click)="Verinfo(cliente)"><i class="fas fa-info"></i> Ver Mas...</button></td>
+                <td><button type="button" class="btn btn-secondary " (click)="actualizar(cliente) "><i class="fas fa-edit "></i> Modificar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

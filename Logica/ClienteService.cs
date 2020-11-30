@@ -51,6 +51,34 @@ namespace Logica
                 return $"Error de la aplicacion: {e.Message}";
             }
         }
+
+        public string Modificar (Cliente clientenuevo){
+            try{
+                var clienteviejo = _context.Clientes.Find(clientenuevo.Cedula);
+                if(clienteviejo !=null){
+
+                    clienteviejo.Cedula = clientenuevo.Cedula;
+                    clienteviejo.Nombre = clientenuevo.Nombre;
+                    clienteviejo.Edad = clientenuevo.Edad;
+                    clienteviejo.Sexo = clientenuevo.Sexo;
+                    clienteviejo.Telefono = clientenuevo.Telefono;
+                    clienteviejo.Correo = clientenuevo.Correo;
+                    clienteviejo.Direccion = clientenuevo.Direccion;
+                    clienteviejo.Hospedajes = clientenuevo.Hospedajes;
+                
+                
+                    _context.Clientes.Update(clienteviejo);
+                    _context.SaveChanges();
+                    return ($"El registro se ha Actualizado sastifactoriamente.");
+                }
+                else{
+                    return ($"La Identificacion no se encuentra en nuestra base de datos");
+                }
+            }
+            catch(Exception e){
+                return $"Error de la aplicacion: {e.Message}";
+            }
+        }
         
     }
     public class GuardarClienteResponse

@@ -24,6 +24,8 @@ import { RegistraReservaComponent } from './components/greservas/registra-reserv
 import { ConsultarDiponibilidadComponent } from './components/greservas/consultar-diponibilidad/consultar-diponibilidad.component';
 import { RegistroEmpleadoComponent } from './components/gempleados/registro-empleado/registro-empleado.component';
 import { ConsultaEmpleadoComponent } from './components/gempleados/consulta-empleado/consulta-empleado.component';
+import { RegistroClienteComponent } from './components/gclientes/registro-cliente/registro-cliente.component';
+import { ConsultaClienteComponent } from './components/gclientes/consulta-cliente/consulta-cliente.component';
 
 
 
@@ -50,6 +52,9 @@ const routes: Routes=[
 
   {path: "RegistroE" , component: RegistroEmpleadoComponent},
   {path: "ConsultaE" , component: ConsultaEmpleadoComponent},
+
+  {path: "RegistroC" , component: RegistroClienteComponent},
+  {path: "ConsultaC" , component: ConsultaClienteComponent},
 
   {path: "clientes" , component: GclientesComponent},
   {path: "invitados" , component: GinvitadosComponent},
