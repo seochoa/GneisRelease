@@ -1,0 +1,19 @@
+<div class="modal-header animated fadeIn">
+    <h4 id="titulo" class="modal-title"><strong>Informacion de: {{empleadomostrar.cedula}}</strong></h4>
+</div>
+<div class="modal-body animated fadeIn">
+    <div class="col col-sm-4 animated fadeIn fast">
+        <div class="container">
+            <p><strong>CEDULA:</strong> {{empleadomostrar.cedula}}</p>
+            <p><strong>NOMBRE:</strong> {{empleadomostrar.nombre}}</p>
+            <p><strong>EDAD:</strong> {{empleadomostrar.edad}}</p>
+            <p><strong>SEXO:</strong> {{empleadomostrar.sexo}}</p>
+            <p><strong>TELEFONO:</strong> {{empleadomostrar.telefono}}</p>
+            <p><strong>CORREO:</strong> {{empleadomostrar.correo}}</p>
+            <p><strong>DIRECCION:</strong> {{empleadomostrar.direccion}}</p>
+            <p><strong>CARGO:</strong> {{empleadomostrar.cargo}}</p>
+            <p><strong>HORARIO:</strong> {{empleadomostrar.horario}}</p>
+            <button type="button"  class="btn btn-secondary"  (click)="activeModal.close('Close click')"> Cerrar</button>
+        </div>
+    </div>
+</div>

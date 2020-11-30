@@ -1,0 +1,152 @@
+<div class="modal-header animated fadeIn">
+    <h4 id="titulo" class="modal-title"><strong>Modificar A: {{empleadoviejo.cedula}}</strong></h4>
+</div>
+<div class="modal-body animated fadeIn">
+    <div class="col col-sm-4 animated fadeIn fast">
+        <div class="container">
+
+            <div class="login-content">
+                <form [formGroup]="formGroup">
+                    <img src="assets/img/empleado.svg">
+
+
+                    <div class="col">
+                        <h5 class="card-title"><strong>Nombre</strong></h5>
+                        <div class="input-div one">
+                            <div class="i">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="div">
+                                <input type="text" autocomplete="off" name="Nombre" class="input" placeholder="Nombre" [ngClass]="{'is-invalid':control.nombre.errors && control.nombre.touched}" formControlName="nombre">
+                                <div *ngIf=" control.nombre.errors "  class="invalid-feedback ">
+                                    <div *ngIf="control.nombre.errors.required ">
+                                        Se requiere el nombre
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Direccion</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-map-marker-alt "></i>
+                            </div>
+                            <div class="div ">
+                                <input type="text " autocomplete="off" name="Direccion" class="input" placeholder="Direccion" [ngClass]="{'is-invalid':control.direccion.errors && control.direccion.touched}" formControlName="direccion">
+                                <div *ngIf=" control.direccion.errors "  class="invalid-feedback ">
+                                    <div *ngIf="control.direccion.errors.required ">
+                                        Se requiere la direccion
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Edad</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-sort-numeric-up "></i>
+                            </div>
+                            <div class="div ">
+                                <input type="number" autocomplete="off" name="Edad " class="input " placeholder="Edad " [ngClass]="{'is-invalid':control.edad.errors && control.edad.touched}" formControlName="edad">
+                                <div *ngIf=" control.edad.errors "  class="invalid-feedback ">
+                                    <div *ngIf="control.edad.errors.required ">
+                                        Se requiere el edad
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Sexo</strong></h5>
+                        <select class="form-control " name="sexo" id="sexo" [ngClass]="{'is-invalid':control.sexo.errors && control.sexo.touched}" formControlName="sexo">
+                                <option >F</option>
+                                <option >M</option>
+                            </select>
+                        <div *ngIf=" control.sexo.errors"  class="invalid-feedback ">
+                            <div *ngIf="control.sexo.errors.required ">
+                                Se requiere el sexo
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Telefono</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-mobile-alt "></i>
+                            </div>
+                            <div class="div ">
+                                <input type="number" autocomplete="off" name="Telefono " class="input " placeholder="Telefono " [ngClass]="{'is-invalid':control.telefono.errors && control.telefono.touched}" formControlName="telefono">
+                                <div *ngIf=" control.telefono.errors"  class="invalid-feedback ">
+                                    <div *ngIf="control.telefono.errors.required ">
+                                        Se requiere el telefono
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Correo</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-at "></i>
+                            </div>
+                            <div class="div ">
+                                <input type="text" autocomplete="off" name="Correo " class="input " placeholder="Correo " [ngClass]="{'is-invalid':control.correo.errors && control.correo.touched}" formControlName="correo">
+                                <div *ngIf=" control.correo.errors"  class="invalid-feedback ">
+                                    <div *ngIf="control.correo.errors.required ">
+                                        Se requiere el correo
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Cargo</strong></h5>
+                        <select class="form-control " name="cargo" id="cargo" [ngClass]="{'is-invalid':control.cargo.errors && control.cargo.touched}" formControlName="cargo">
+                                <option >Recepcionista</option>
+                                <option >Camarera de piso</option>
+                                <option >Gobernanta</option>
+                                <option >seguridad</option>
+                                <option >mantenimiento</option>
+                                <option >Director general</option>
+                            </select>
+                        <div *ngIf=" control.cargo.errors"  class="invalid-feedback ">
+                            <div *ngIf="control.cargo.errors.required ">
+                                Se requiere el cargo
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Horario</strong></h5>
+                        <div class="input-div one ">
+                            <div class="i ">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="div ">
+                                <input type="text" autocomplete="off" name="horario" class="input " placeholder="Horario" [ngClass]="{'is-invalid':control.horario.errors && control.horario.touched}" formControlName="horario">
+                                <div *ngIf=" control.horario.errors"  class="invalid-feedback ">
+                                    <div *ngIf="control.horario.errors.required ">
+                                        Se requiere el horario
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" id="login" class="btn btn-light" (click)="onUpdate()" [disabled]="formGroup.invalid" id="login">Actualizar</button>
+                    <button type="button"  class="btn btn-secondary"  (click)="activeModal.close('Close click')"> Cerrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -48,8 +48,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './components/signup/signup.component';
 
 //More
-import { GempleadosComponent } from './components/gempleados/gempleados.component';
-import { GreservasComponent } from './components/greservas/greservas.component';
 import { GclientesComponent } from './components/gclientes/gclientes.component';
 import { GinvitadosComponent } from './components/ginvitados/ginvitados.component';
 import { GreportesComponent } from './components/greportes/greportes.component';
@@ -65,6 +63,12 @@ import { ProductoService } from './Services/producto.service';
 import { RegistraReservaComponent } from './components/greservas/registra-reserva/registra-reserva.component';
 import { ConsultarDiponibilidadComponent } from './components/greservas/consultar-diponibilidad/consultar-diponibilidad.component';
 import { Filtrohabitacion2Pipe } from './pipes/filtrohabitacion2.pipe';
+import { FiltroempleadoPipe } from './pipes/filtroempleado.pipe';
+import { RegistroEmpleadoComponent } from './components/gempleados/registro-empleado/registro-empleado.component';
+import { ConsultaEmpleadoComponent } from './components/gempleados/consulta-empleado/consulta-empleado.component';
+import { EliminaEmpleadoComponent } from './components/gempleados/elimina-empleado/elimina-empleado.component';
+import { ActualizaEmpleadoComponent } from './components/gempleados/actualiza-empleado/actualiza-empleado.component';
+import { VerinfoEmpleadoComponent } from './components/gempleados/verinfo-empleado/verinfo-empleado.component';
 
 
 
@@ -79,8 +83,6 @@ import { Filtrohabitacion2Pipe } from './pipes/filtrohabitacion2.pipe';
     LoginComponent,
     FooterComponent,
     Home2Component,
-    GempleadosComponent,
-    GreservasComponent,
     GclientesComponent,
     NavBarAdminComponent,
     Home3Component,
@@ -111,8 +113,12 @@ import { Filtrohabitacion2Pipe } from './pipes/filtrohabitacion2.pipe';
     RegistraReservaComponent,
     ConsultarDiponibilidadComponent,
     Filtrohabitacion2Pipe,
-    
-
+    FiltroempleadoPipe,
+    RegistroEmpleadoComponent,
+    ConsultaEmpleadoComponent,
+    EliminaEmpleadoComponent,
+    ActualizaEmpleadoComponent,
+    VerinfoEmpleadoComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -127,9 +133,12 @@ import { Filtrohabitacion2Pipe } from './pipes/filtrohabitacion2.pipe';
     ActualizaUsuarioComponent,
     ActualizaHabitacionComponent,
     ActualizaProductoComponent,
+    ActualizaEmpleadoComponent,
     EliminaUsuarioComponent,
     EliminaProductoComponent,
-    EliminaHabitacionComponent],
+    EliminaHabitacionComponent,
+    EliminaEmpleadoComponent,
+    VerinfoEmpleadoComponent],
     
   providers: [
     UsuarioService,

@@ -53,7 +53,8 @@ namespace gneis.Controllers
                 Sexo = clienteInput.Sexo,
                 Telefono = clienteInput.Telefono,
                 Correo = clienteInput.Correo,
-                Direccion = clienteInput.Direccion
+                Direccion = clienteInput.Direccion,
+                Hospedajes = clienteInput.Hospedajes
                 
 
             };

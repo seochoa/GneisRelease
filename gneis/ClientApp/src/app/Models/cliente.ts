@@ -6,4 +6,5 @@ export class Cliente {
     telefono: number;
     correo: string;
     direccion: string;
+    hospedajes: number;
 }

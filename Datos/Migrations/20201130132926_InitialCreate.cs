@@ -17,11 +17,31 @@ namespace Datos.Migrations
                     Sexo = table.Column<string>(type: "nvarchar(10)", nullable: true),
                     Telefono = table.Column<decimal>(type: "decimal(15,2)", nullable: false),
                     Correo = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    Direccion = table.Column<string>(type: "nvarchar(30)", nullable: true)
+                    Direccion = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Hospedajes = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Clientes", x => x.Cedula);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Empleados",
+                columns: table => new
+                {
+                    Cedula = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    Edad = table.Column<int>(nullable: false),
+                    Sexo = table.Column<string>(type: "nvarchar(10)", nullable: true),
+                    Telefono = table.Column<decimal>(type: "decimal(15,2)", nullable: false),
+                    Correo = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Direccion = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Cargo = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    Horario = table.Column<string>(type: "nvarchar(30)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Empleados", x => x.Cedula);
                 });
 
             migrationBuilder.CreateTable(
@@ -106,6 +126,9 @@ namespace Datos.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Empleados");
+
             migrationBuilder.DropTable(
                 name: "Productos");
 

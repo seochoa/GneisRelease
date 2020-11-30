@@ -1,0 +1,41 @@
+<app-nav-bar-admin></app-nav-bar-admin>
+<br>
+
+<div class="container">
+    <h2 id="titulo" class="title">Listado de Empleados</h2>
+    <input autocomplete="off" type="text " class="email" name="search" placeholder="Search" [(ngModel)]="searchuser">
+
+</div>
+<br>
+<br>
+
+<div class="container">
+    <td><button id="eliminar" type="button" class="btn btn-light" (click)="consultar()"><i class="fas fa-redo-alt"></i></button></td>
+    <br>
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col ">#</th>
+                <th scope="col ">Cedula</th>
+                <th scope="col ">Nombre</th>
+                <th scope="col ">Cargo</th>
+                <th scope="col ">Horario</th>
+                <th scope="col ">Ver Informacion</th>
+                <th scope="col ">Eliminar</th>
+                <th scope="col ">Modificar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let empleado of empleados|filtroempleado:searchuser; index as i ">
+                <th scope="row ">{{i+1}}</th>
+                <td><strong>{{empleado.cedula}}</strong></td>
+                <td><strong>{{empleado.nombre}}</strong></td>
+                <td><strong>{{empleado.cargo}}</strong></td>
+                <td><strong>{{empleado.horario}}</strong></td>
+                <td><button type="button" class="btn btn-secondary" (click)="Verinfo(empleado)"><i class="fas fa-info"></i> Ver Mas...</button></td>
+                <td><button id="eliminar" type="button" class="btn btn-light" (click)="eliminar(empleado) "><i class="fas fa-minus-circle "></i> Eliminar</button></td>
+                <td><button type="button" class="btn btn-secondary " (click)="actualizar(empleado) "><i class="fas fa-edit "></i> Modificar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

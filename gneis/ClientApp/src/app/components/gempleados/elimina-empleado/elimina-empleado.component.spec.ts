@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GreservasComponent } from './greservas.component';
+import { EliminaEmpleadoComponent } from './elimina-empleado.component';
 
-describe('GreservasComponent', () => {
-  let component: GreservasComponent;
-  let fixture: ComponentFixture<GreservasComponent>;
+describe('EliminaEmpleadoComponent', () => {
+  let component: EliminaEmpleadoComponent;
+  let fixture: ComponentFixture<EliminaEmpleadoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GreservasComponent ]
+      declarations: [ EliminaEmpleadoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GreservasComponent);
+    fixture = TestBed.createComponent(EliminaEmpleadoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

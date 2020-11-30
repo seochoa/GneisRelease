@@ -1,0 +1,15 @@
+<div class="modal-header animated fadeIn">
+    <h4 id="titulo" class="modal-title"><strong>Seguro de eliminar a: {{empleadoeliminar.cedula}}</strong></h4>
+</div>
+<div class="modal-body animated fadeIn">
+    <div class="col col-sm-4 animated fadeIn fast">
+        <div class="container">
+            <p><strong>CEDULA:</strong> {{empleadoeliminar.cedula}}</p>
+            <p><strong>NOMBRE:</strong> {{empleadoeliminar.nombre}}</p>
+            <p><strong>CARGO:</strong> {{empleadoeliminar.cargo}}</p>
+            <p><strong>HORARIO:</strong> {{empleadoeliminar.horario}}</p>
+            <button type="button" id="login" class="btn btn-light" (click)="eliminar()">Eliminar</button>
+            <button type="button"  class="btn btn-secondary"  (click)="activeModal.close('Close click')"> Cancelar</button>
+        </div>
+    </div>
+</div>

@@ -18,6 +18,7 @@ namespace Entidad
         [Column (TypeName = "nvarchar(30)")]
         public string Correo { get; set; }
         [Column (TypeName = "nvarchar(30)")]
-        public string Direccion { get; set; }    
+        public string Direccion { get; set; }
+        public int Hospedajes { get; set; }    
     }
 }

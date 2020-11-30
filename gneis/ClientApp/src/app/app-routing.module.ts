@@ -4,8 +4,6 @@ import { Route, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/Homes/home/home.component';
 import { Home2Component } from './components/Homes/home2/home2.component';
-import { GempleadosComponent } from './components/gempleados/gempleados.component';
-import { GreservasComponent } from './components/greservas/greservas.component';
 import { GclientesComponent } from './components/gclientes/gclientes.component';
 
 import { Home3Component } from './components/Homes/home3/home3.component';
@@ -24,6 +22,8 @@ import { RegistrarProductoComponent } from './components/gproductos/registrar-pr
 import { ConsultaProductoComponent } from './components/gproductos/consulta-producto/consulta-producto.component';
 import { RegistraReservaComponent } from './components/greservas/registra-reserva/registra-reserva.component';
 import { ConsultarDiponibilidadComponent } from './components/greservas/consultar-diponibilidad/consultar-diponibilidad.component';
+import { RegistroEmpleadoComponent } from './components/gempleados/registro-empleado/registro-empleado.component';
+import { ConsultaEmpleadoComponent } from './components/gempleados/consulta-empleado/consulta-empleado.component';
 
 
 
@@ -48,8 +48,9 @@ const routes: Routes=[
   {path: "RegistroRU" , component: RegistraReservaComponent},
   {path: "ConsultaDH" , component: ConsultarDiponibilidadComponent},
 
-  {path: "empleados" , component: GempleadosComponent},
-  {path: "reservas" , component: GreservasComponent},
+  {path: "RegistroE" , component: RegistroEmpleadoComponent},
+  {path: "ConsultaE" , component: ConsultaEmpleadoComponent},
+
   {path: "clientes" , component: GclientesComponent},
   {path: "invitados" , component: GinvitadosComponent},
   {path: "reportes" , component: GreportesComponent},

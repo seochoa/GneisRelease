@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datos.Migrations
 {
     [DbContext(typeof(ProyectoContext))]
-    [Migration("20201126191028_InitialCreate")]
+    [Migration("20201130132926_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,9 @@ namespace Datos.Migrations
                     b.Property<int>("Edad")
                         .HasColumnType("int");
 
+                    b.Property<int>("Hospedajes")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(50)");
 
@@ -47,6 +50,40 @@ namespace Datos.Migrations
                     b.HasKey("Cedula");
 
                     b.ToTable("Clientes");
+                });
+
+            modelBuilder.Entity("Entidad.Empleado", b =>
+                {
+                    b.Property<string>("Cedula")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Cargo")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Correo")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Direccion")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<int>("Edad")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Horario")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Sexo")
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<decimal>("Telefono")
+                        .HasColumnType("decimal(15,2)");
+
+                    b.HasKey("Cedula");
+
+                    b.ToTable("Empleados");
                 });
 
             modelBuilder.Entity("Entidad.Habitacion", b =>

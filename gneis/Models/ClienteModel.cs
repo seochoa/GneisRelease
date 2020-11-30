@@ -14,6 +14,7 @@ namespace gneis.Models
         public decimal Telefono {get; set;}
         public string Correo { get; set; }
         public string Direccion { get; set; } 
+        public int Hospedajes { get; set; } 
     }
 
     public class ClienteViewModel : ClienteInputModel
@@ -31,6 +32,8 @@ namespace gneis.Models
             Telefono = cliente.Telefono;
             Correo = cliente.Correo;
             Direccion = cliente.Direccion;
+            Hospedajes = cliente.Hospedajes;
+            
             
         }
         
