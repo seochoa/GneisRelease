@@ -1,11 +1,10 @@
-<app-nav-bar></app-nav-bar>
 <div class="col col-sm-4 animated fadeIn fast">
     <div class="container">
         <div class="img">
             <img src="assets/img/avatar.svg">
         </div>
         <div class="login-content">
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
                 <h2 id="titulo" class="title">Welcome</h2>
                 <div class="input-div one">
@@ -13,7 +12,10 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <input type="text" class="input" placeholder="Username">
+                        <input type="text" class="input" placeholder="Username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" formControlName="username">
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required">Username is required</div>
+                        </div>
                     </div>
                 </div>
                 <div class="input-div pass">
@@ -21,18 +23,18 @@
                         <i class="fas fa-lock"></i>
                     </div>
                     <div class="div">
-                        <input type="password" class="input" placeholder="Password">
+                        <input type="password" class="input" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password">
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
                     </div>
                 </div>
                 <br>
-                <div class="form-group">
-                    <select class="form-control" id="tipo" name="tipo" [(ngModel)]="tipouser">
-                        <option>Admin</option>
-                        <option>User</option>
-                        <option>Emp</option>
-                    </select>
-                </div>
-                <button type="button" id="login" class="btn btn-light" [routerLink]="[login()]" id="login">Login</button>
+                <button [disabled]="loading" id="login" class="btn btn-light">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+
                 <button type="button" id="singup" class="btn btn-secondary" [routerLink]="['/']">Volver</button>
             </form>
         </div>

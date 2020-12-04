@@ -26,6 +26,9 @@ import { RegistroEmpleadoComponent } from './components/gempleados/registro-empl
 import { ConsultaEmpleadoComponent } from './components/gempleados/consulta-empleado/consulta-empleado.component';
 import { RegistroClienteComponent } from './components/gclientes/registro-cliente/registro-cliente.component';
 import { ConsultaClienteComponent } from './components/gclientes/consulta-cliente/consulta-cliente.component';
+import { AuthAdminGuard } from './Services/auth-admin.guard';
+import { AuthEmpGuard } from './Services/auth-emp.guard';
+import { AuthClientGuard } from './Services/auth-client.guard';
 
 
 
@@ -34,33 +37,33 @@ const routes: Routes=[
   {path: "signup" , component: SignupComponent},
   {path: "login" , component: LoginComponent},
 
-  {path: "home" , component: Home2Component},
-  {path: "home2" , component: Home3Component},
-  {path: "home3" , component: Home4Component},
+  {path: "home" , component: Home2Component,canActivate: [AuthAdminGuard]},
+  {path: "home2" , component: Home3Component,canActivate: [AuthEmpGuard]},
+  {path: "home3" , component: Home4Component,canActivate: [AuthClientGuard]},
 
-  {path: "RegistroU" , component: RegistroUsuarioComponent},
-  {path: "ConsultaU" , component: ConsultaUsuarioComponent},
+  {path: "RegistroU" , component: RegistroUsuarioComponent,canActivate: [AuthAdminGuard] },
+  {path: "ConsultaU" , component: ConsultaUsuarioComponent,canActivate: [AuthAdminGuard] },
 
-  {path: "RegistroH" , component: RegistraHabitacionComponent},
-  {path: "ConsultaH" , component: ConsultaHabitacionComponent},
+  {path: "RegistroH" , component: RegistraHabitacionComponent,canActivate: [AuthEmpGuard]},
+  {path: "ConsultaH" , component: ConsultaHabitacionComponent,canActivate: [AuthEmpGuard]},
 
-  {path: "RegistroP" , component: RegistrarProductoComponent},
-  {path: "ConsultaP" , component: ConsultaProductoComponent},
+  {path: "RegistroP" , component: RegistrarProductoComponent,canActivate: [AuthEmpGuard]},
+  {path: "ConsultaP" , component: ConsultaProductoComponent,canActivate: [AuthEmpGuard]},
 
-  {path: "RegistroRU" , component: RegistraReservaComponent},
-  {path: "ConsultaDH" , component: ConsultarDiponibilidadComponent},
+  {path: "RegistroRU" , component: RegistraReservaComponent,canActivate: [AuthClientGuard]},
+  {path: "ConsultaDH" , component: ConsultarDiponibilidadComponent,canActivate: [AuthClientGuard]},
 
-  {path: "RegistroE" , component: RegistroEmpleadoComponent},
-  {path: "ConsultaE" , component: ConsultaEmpleadoComponent},
+  {path: "RegistroE" , component: RegistroEmpleadoComponent,canActivate: [AuthAdminGuard] },
+  {path: "ConsultaE" , component: ConsultaEmpleadoComponent,canActivate: [AuthAdminGuard] },
 
-  {path: "RegistroC" , component: RegistroClienteComponent},
-  {path: "ConsultaC" , component: ConsultaClienteComponent},
+  {path: "RegistroC" , component: RegistroClienteComponent,canActivate: [AuthEmpGuard]},
+  {path: "ConsultaC" , component: ConsultaClienteComponent,canActivate: [AuthEmpGuard]},
 
-  {path: "clientes" , component: GclientesComponent},
-  {path: "invitados" , component: GinvitadosComponent},
-  {path: "reportes" , component: GreportesComponent},
-  {path: "facturas" , component: GfacturasComponent},
-  {path: "Rreserva" , component: ReservaregistroComponent},
+  // {path: "clientes" , component: GclientesComponent},
+  // {path: "invitados" , component: GinvitadosComponent},
+  // {path: "reportes" , component: GreportesComponent},
+  // {path: "facturas" , component: GfacturasComponent},
+  // {path: "Rreserva" , component: ReservaregistroComponent},
   {path: "**", component: HomeComponent}
 ]
 

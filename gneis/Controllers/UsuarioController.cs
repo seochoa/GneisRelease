@@ -9,9 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using gneis.Models;
 using Datos;
-
+using Microsoft.AspNetCore.Authorization;
 namespace gneis.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
@@ -21,6 +22,7 @@ namespace gneis.Controllers
             _usuarioservice = new UsuarioService(context);
         }
         //POST: api/Usuario
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult<UsuarioViewModel> post(UsuarioInputModel usuarioInput){
             Usuario usuario = MapearUsuario(usuarioInput);

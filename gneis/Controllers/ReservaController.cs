@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using gneis.Models;
 using Datos;
+using Microsoft.AspNetCore.Authorization;
 namespace gneis.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ReservaController : ControllerBase

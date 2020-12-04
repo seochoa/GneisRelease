@@ -16,6 +16,10 @@ namespace Logica
             _context=context;
         }
 
+        public Usuario Validate(string idusuario, string password) {
+            return _context.Usuarios.Where(u => u.Iduser == idusuario && u.Password == password).FirstOrDefault();
+        }
+
         public GuardarUsuarioResponse Guardar(Usuario usuario){
             try{
                 var UsuarioBuscado = _context.Usuarios.Find(usuario.Iduser);

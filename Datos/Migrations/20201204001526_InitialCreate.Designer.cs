@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datos.Migrations
 {
     [DbContext(typeof(ProyectoContext))]
-    [Migration("20201130132926_InitialCreate")]
+    [Migration("20201204001526_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -151,6 +151,25 @@ namespace Datos.Migrations
                     b.HasIndex("Idhabitacion");
 
                     b.ToTable("Reservas");
+                });
+
+            modelBuilder.Entity("Entidad.User", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Entidad.Usuario", b =>

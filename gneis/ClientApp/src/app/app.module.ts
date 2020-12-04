@@ -74,6 +74,7 @@ import { RegistroClienteComponent } from './components/gclientes/registro-client
 import { ConsultaClienteComponent } from './components/gclientes/consulta-cliente/consulta-cliente.component';
 import { ActualizaClienteComponent } from './components/gclientes/actualiza-cliente/actualiza-cliente.component';
 import { FiltroclientePipe } from './pipes/filtrocliente.pipe';
+import { JwtInterceptor } from './Services/jwt.interceptor';
 
 
 
@@ -152,10 +153,7 @@ import { FiltroclientePipe } from './pipes/filtrocliente.pipe';
     VerinfoEmpleadoComponent,
     VerinfoClienteComponent],
     
-  providers: [
-    UsuarioService,
-    HabitacionService,
-    ProductoService],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

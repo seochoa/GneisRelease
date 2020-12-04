@@ -1,10 +1,136 @@
 <nav class="navbar navbar-expand-lg navbar navbar-light">
-    <a class="navbar-brand" id="titulo">GNEIS<small>Version 1.7</small></a>
+    <a class="navbar-brand" id="titulo">GNEIS<small>Version 1.8</small></a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
+            <li class="nav-item">
+                <a class="nav-link" id="opciones" [routerLink]="['/home3']" *ngIf="currentUser && currentUser.role == 'Cliente'">HOME</a>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Cliente'">
+                      <strong>Reservaciones</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/RegistroRU']">Reservar</a>
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/ConsultaDH']">Consultar Disponibilidad</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="opciones" [routerLink]="['/home2']" *ngIf="currentUser && currentUser.role == 'Empleado'">HOME</a>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Empleado'">
+                      <strong>Habitaciones</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/RegistroH']">Registrar</a>
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/ConsultaH']">Consultar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Empleado'">
+                      <strong>Hospedaje</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/home2']">Reservas</a>
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/home2']">Check-in</a>
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/home2']">Check-out</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Empleado'">
+                      <strong>Clientes</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/RegistroC']">Registrar</a>
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/ConsultaC']">Consultar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Empleado'">
+                      <strong>Invitados</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/home2']">Consultar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Empleado'">
+                      <strong>Productos</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/RegistroP']">Registrar</a>
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/ConsultaP']">Consultar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Empleado'">
+                      <strong>Reportes</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/home2']">Consultar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Empleado'">
+                      <strong>Facturas</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/home2']">Registrar</a>
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/home2']">Consultar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="opciones" [routerLink]="['/home']" *ngIf="currentUser && currentUser.role == 'Administrador'">HOME</a>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Administrador'">
+                      <strong>Usuarios</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/RegistroU']">Registrar</a>
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/ConsultaU']">Consultar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Administrador'">
+                      <strong>Empleados</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/RegistroE']">Registrar</a>
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/ConsultaE']">Consultar</a>
+                    </div>
+                </div>
+            </li>
         </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <a id="boton" type="button" class="btn btn-outline-light" (click)="logout()" *ngIf="currentUser"><strong>CERRAR SESION</strong></a>
+        </form>
+        <form class="form-inline my-2 my-lg-0">
+            <a id="boton" type="button" class="btn btn-outline-light" [routerLink]="['/login']" *ngIf="!currentUser"><strong>INICIAR SESION</strong></a>
+        </form>
+        <form class="form-inline my-2 my-lg-0">
+            <a id="boton" type="button" class="btn btn-outline-light" [routerLink]="['/signup']" *ngIf="!currentUser"><strong>REGISTRARME</strong></a>
+        </form>
 
     </div>
 </nav>

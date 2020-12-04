@@ -18,10 +18,28 @@ small {
 }
 
 #opciones {
-    color: white;
-    font-family: cursive;
+    font-family: 'Balsamiq Sans', cursive;
+    color: #00BFA6;
+}
+
+#opciones:hover {
+    background-color: #75ebdb5b;
 }
 
 button {
+    color: #00BFA6;
     font-family: cursive;
+}
+
+#boton {
+    background-color: #00BFA6;
+    color: white;
+}
+
+#boton:hover {
+    background-color: #118d7c;
+}
+
+#drop {
+    background-color: white;
 }

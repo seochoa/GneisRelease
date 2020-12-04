@@ -15,6 +15,7 @@ namespace Datos
         public DbSet<Cliente> Clientes {get;set;}
         public DbSet<Reserva> Reservas {get;set;}
         public DbSet<Empleado> Empleados {get;set;}
+        public DbSet<User> Users {get;set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

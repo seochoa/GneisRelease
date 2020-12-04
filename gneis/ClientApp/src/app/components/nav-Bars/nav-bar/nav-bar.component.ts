@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Mostrarbotones } from '../../../Models/mostrarbotones';
+import { Usuario } from '../../../Models/usuario';
+import { AuthenticationService } from '../../../Services/authentication.service';
+import { User } from '../../../seguridad/user';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,27 +13,25 @@ import { Mostrarbotones } from '../../../Models/mostrarbotones';
 export class NavBarComponent implements OnInit {
   
  
-  mostrar = true;
-  mostrarbotones: Mostrarbotones;
+  currentUser: User;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ){
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    
+  }
 
   ngOnInit(): void {
-    this.mostrarbotones = new Mostrarbotones();
-    this.ocultar();
+    
   }
 
-  ocultar(){
-    this.mostrarbotones.mostrarbtnAdmin = false;
-    this.mostrarbotones.mostrarbtnEmp = false;
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/']);
   }
 
-  mostraradmin(){
-    this.mostrarbotones.mostrarbtnAdmin != this.mostrarbotones.mostrarbtnAdmin;
-  }
-
-  mostrarbotone(){
-    this.mostrar = !this.mostrar;
-  }
+  
 
 }
