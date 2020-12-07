@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from '../../../Models/usuario';
 import { UsuarioService } from '../../../Services/usuario.service';
 import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.component';
+import { User } from '../../../seguridad/user';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -13,7 +14,7 @@ import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.comp
 export class RegistroUsuarioComponent implements OnInit {
 
   formGroup: FormGroup;
-  usuario: Usuario;
+  usuario: User;
   constructor(private usuarioService : UsuarioService, private formbuilder : FormBuilder,private modalService : NgbModal) { }
 
   ngOnInit(): void {
@@ -21,14 +22,14 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   private buildform(){
-    this.usuario = new Usuario();
-    this.usuario.iduser = '';
-    this.usuario.typeuser = '';
+    this.usuario = new User();
+    this.usuario.username = '';
+    this.usuario.role = '';
     this.usuario.password = '';
 
     this.formGroup = this.formbuilder.group({
-      iduser       :[this.usuario.iduser, Validators.required],
-      typeuser     :[this.usuario.typeuser, Validators.required],
+      username       :[this.usuario.username, Validators.required],
+      role     :[this.usuario.role, Validators.required],
       password     :[this.usuario.password,Validators.required],
     });
   }
@@ -56,10 +57,11 @@ export class RegistroUsuarioComponent implements OnInit {
         const menssageBox = this.modalService.open(AlertModalComponent)
         menssageBox.componentInstance.type = 'success';
         menssageBox.componentInstance.message = 'Usuario registrado Correctamente';
+        this.onReset();
         this.usuario = p;
       }
     });
-    this.onReset();
+    
   }
 
 }

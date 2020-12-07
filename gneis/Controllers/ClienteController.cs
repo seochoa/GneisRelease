@@ -27,7 +27,12 @@ namespace gneis.Controllers
             Cliente cliente = MapearCliente(clienteInput);
             var response = _clienteservice.Guardar(cliente);
             if (response.Error){
-                return BadRequest(response.Mensaje);
+                ModelState.AddModelError("Guardar Cliente", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
             }
             return Ok(response.Cliente);
         }
@@ -49,8 +54,16 @@ namespace gneis.Controllers
         [HttpPut]
         public ActionResult<string> Update(ClienteInputModel clienteInput){
             Cliente cliente = MapearCliente(clienteInput);
-            string mensaje = _clienteservice.Modificar(cliente);
-            return Ok(mensaje);
+            var response  = _clienteservice.Modificar(cliente);
+            if (response.Error){
+                ModelState.AddModelError("Guardar Cliente", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
+            }
+            return Ok(response.Cliente);
         }
 
         private Cliente MapearCliente(ClienteInputModel clienteInput){

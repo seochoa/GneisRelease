@@ -17,18 +17,23 @@ namespace gneis.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        private readonly UsuarioService _usuarioservice;
+        private readonly UserService _usuarioservice;
         public UsuarioController(ProyectoContext context){
-            _usuarioservice = new UsuarioService(context);
+            _usuarioservice = new UserService(context);
         }
         //POST: api/Usuario
         [AllowAnonymous]
         [HttpPost]
         public ActionResult<UsuarioViewModel> post(UsuarioInputModel usuarioInput){
-            Usuario usuario = MapearUsuario(usuarioInput);
+            User usuario = MapearUsuario(usuarioInput);
             var response = _usuarioservice.Guardar(usuario);
             if (response.Error){
-                return BadRequest(response.Mensaje);
+                ModelState.AddModelError("Guardar Usuario", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
             }
             return Ok(response.Usuario);
         }
@@ -37,15 +42,6 @@ namespace gneis.Controllers
         public IEnumerable<UsuarioViewModel> gets(){
             var usuarios = _usuarioservice.ConsultarTodos().Select(p=>new UsuarioViewModel(p));
             return usuarios;
-        }
-
-        // GET: api/Usuario/5
-        [HttpGet("{iduser}")]
-        public ActionResult<UsuarioViewModel> get(string iduser){
-            var usuario = _usuarioservice.BuscarPorID(iduser);
-            if(usuario == null)return NotFound();
-            var usuarioViewModel = new UsuarioViewModel(usuario);
-            return usuarioViewModel;
         }
 
         // DELETE: api/Usuario/5
@@ -57,17 +53,25 @@ namespace gneis.Controllers
         }
 
         [HttpPut]
-        public ActionResult<string> Update(UsuarioInputModel usuarioInput){
-            Usuario usuario = MapearUsuario(usuarioInput);
-            string mensaje = _usuarioservice.Modificar(usuario);
-            return Ok(mensaje);
+        public ActionResult<UsuarioViewModel> Update(UsuarioInputModel usuarioInput){
+            User usuario = MapearUsuario(usuarioInput);
+            var response = _usuarioservice.Modificar(usuario);
+            if (response.Error){
+                ModelState.AddModelError("Actualizar Usuario", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
+            }
+            return Ok(response.Usuario);
         }
 
-        private Usuario MapearUsuario(UsuarioInputModel usuarioInput){
-            var Usuario = new Usuario
+        private User MapearUsuario(UsuarioInputModel usuarioInput){
+            var Usuario = new User
             {
-                Iduser = usuarioInput.Iduser,
-                Typeuser = usuarioInput.Typeuser,
+                Username = usuarioInput.Username,
+                Role = usuarioInput.Role,
                 Password = usuarioInput.Password
 
             };

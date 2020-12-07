@@ -59,10 +59,13 @@ export class ActualizaClienteComponent implements OnInit {
     this.cliente.hospedajes = this.clienteviejo.hospedajes;
     console.log(this.cliente);
      this.clienteService.update(this.cliente).subscribe(p=>{
-       const menssageBox = this.modalService.open(AlertModalComponent)
-       menssageBox.componentInstance.type = "success";
-       menssageBox.componentInstance.message = 'Empleado Modificado Correctamente';
-       this.activeModal.close();
+      if(p!=null){
+        const menssageBox = this.modalService.open(AlertModalComponent)
+        menssageBox.componentInstance.type = "success";
+        menssageBox.componentInstance.message = 'Empleado Modificado Correctamente';
+        this.activeModal.close();
+      }
+       
      });
   }
 

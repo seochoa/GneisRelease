@@ -58,7 +58,7 @@ namespace Logica
             }
         }
 
-        public string Modificar (Habitacion habitacionnueva){
+        public GuardarHabitacionResponse Modificar (Habitacion habitacionnueva){
             try{
                 var habitacionvieja = _context.Habitaciones.Find(habitacionnueva.Idhabitacion);
                 if(habitacionvieja !=null){
@@ -69,14 +69,14 @@ namespace Logica
                     habitacionvieja.Usos = habitacionnueva.Usos;
                     _context.Habitaciones.Update(habitacionvieja);
                     _context.SaveChanges();
-                    return ($"El registro se ha Actualizado sastifactoriamente.");
+                    return new GuardarHabitacionResponse (habitacionvieja);
                 }
                 else{
-                    return ($"La Identificacion no se encuentra en nuestra base de datos");
+                    return new GuardarHabitacionResponse ($"La Identificacion no se encuentra en nuestra base de datos");
                 }
             }
             catch(Exception e){
-                return $"Error de la aplicacion: {e.Message}";
+                return new GuardarHabitacionResponse ($"Error de la aplicacion: {e.Message}") ;
             }
         }
         

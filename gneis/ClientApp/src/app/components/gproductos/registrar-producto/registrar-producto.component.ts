@@ -58,10 +58,11 @@ export class RegistrarProductoComponent implements OnInit {
         const menssageBox = this.modalService.open(AlertModalComponent)
         menssageBox.componentInstance.type = "success";
         menssageBox.componentInstance.message = 'Producto registrado Correctamente';
+        this.onReset();
         this.producto = p;
       }
     });
-    this.onReset();
+    
   }
 
 }

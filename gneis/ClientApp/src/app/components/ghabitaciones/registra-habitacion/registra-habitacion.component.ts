@@ -60,10 +60,11 @@ export class RegistraHabitacionComponent implements OnInit {
         const menssageBox = this.modalService.open(AlertModalComponent)
         menssageBox.componentInstance.type = 'success';
         menssageBox.componentInstance.message = 'Habitacion registrada Correctamente';
-         this.habitacion = p;
+        this.onReset();
+        this.habitacion = p;
        }
     });
-    this.onReset();
+    
   }
 
 }

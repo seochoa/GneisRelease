@@ -28,7 +28,12 @@ namespace gneis.Controllers
             Producto producto = MapearProducto(productoInput);
             var response = _productoservice.Guardar(producto);
             if (response.Error){
-                return BadRequest(response.Mensaje);
+                ModelState.AddModelError("Guardar Producto", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
             }
             return Ok(response.Producto);
         }
@@ -59,8 +64,16 @@ namespace gneis.Controllers
         [HttpPut]
         public ActionResult<string> Update(ProductoInputModel productoInput){
             Producto producto = MapearProducto(productoInput);
-            string mensaje = _productoservice.Modificar(producto);
-            return Ok(mensaje);
+            var response = _productoservice.Modificar(producto);
+            if (response.Error){
+                ModelState.AddModelError("Actualizar Producto", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
+            }
+            return Ok(response.Producto);
         }
 
         

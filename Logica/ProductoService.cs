@@ -58,7 +58,7 @@ namespace Logica
             }
         }
 
-        public string Modificar (Producto productonuevo){
+        public GuardarProductoResponse Modificar (Producto productonuevo){
             try{
                 var Productoviejo = _context.Productos.Find(productonuevo.Idproducto);
                 if(Productoviejo !=null){
@@ -68,14 +68,14 @@ namespace Logica
                     Productoviejo.Vrunitario = productonuevo.Vrunitario;
                     _context.Productos.Update(Productoviejo);
                     _context.SaveChanges();
-                    return ($"El registro se ha Actualizado sastifactoriamente.");
+                    return new GuardarProductoResponse (Productoviejo);
                 }
                 else{
-                    return ($"La Identificacion no se encuentra en nuestra base de datos");
+                    return new GuardarProductoResponse ($"La Identificacion no se encuentra en nuestra base de datos");
                 }
             }
             catch(Exception e){
-                return $"Error de la aplicacion: {e.Message}";
+                return new GuardarProductoResponse ($"Error de la aplicacion: {e.Message}");
             }
         }
         

@@ -50,10 +50,12 @@ export class ActualizaHabitacionComponent implements OnInit {
     this.habitacion.estado = this.habitacionvieja.estado;
     this.habitacion.usos = this.habitacionvieja.usos;
      this.habitacionService.update(this.habitacion).subscribe(p=>{
-       const menssageBox = this.modalService.open(AlertModalComponent)
-       menssageBox.componentInstance.type = "success";
-       menssageBox.componentInstance.message = 'Habitacion Modificada Correctamente';
-       this.activeModal.close();
+      if(p!=null){
+        const menssageBox = this.modalService.open(AlertModalComponent)
+        menssageBox.componentInstance.type = "success";
+        menssageBox.componentInstance.message = 'Habitacion Modificada Correctamente';
+        this.activeModal.close();
+      }  
      });
   }
 

@@ -26,7 +26,12 @@ namespace gneis.Controllers
             Empleado empleado = MapearEmpleado(empleadoInput);
             var response = _empleadoservice.Guardar(empleado);
             if (response.Error){
-                return BadRequest(response.Mensaje);
+                ModelState.AddModelError("Guardar Empleado", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
             }
             return Ok(response.Empleado);
         }
@@ -46,10 +51,18 @@ namespace gneis.Controllers
         }
 
         [HttpPut]
-        public ActionResult<string> Update(EmpleadoInputModel empleadoInput){
+        public ActionResult<EmpleadoViewModel> Update(EmpleadoInputModel empleadoInput){
             Empleado empleado = MapearEmpleado(empleadoInput);
-            string mensaje = _empleadoservice.Modificar(empleado);
-            return Ok(mensaje);
+            var response = _empleadoservice.Modificar(empleado);
+            if (response.Error){
+                ModelState.AddModelError("Actualizar Empleado", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
+            }
+            return Ok(response.Empleado);
         }
         
         private Empleado MapearEmpleado(EmpleadoInputModel empleadoInput){

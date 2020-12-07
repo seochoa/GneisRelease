@@ -61,10 +61,13 @@ export class ActualizaEmpleadoComponent implements OnInit {
     this.empleado.cedula = this.empleadoviejo.cedula;
     console.log(this.empleado);
      this.empleadoService.update(this.empleado).subscribe(p=>{
-       const menssageBox = this.modalService.open(AlertModalComponent)
-       menssageBox.componentInstance.type = "success";
-       menssageBox.componentInstance.message = 'Empleado Modificado Correctamente';
-       this.activeModal.close();
+      if(p!=null){
+        const menssageBox = this.modalService.open(AlertModalComponent)
+        menssageBox.componentInstance.type = "success";
+        menssageBox.componentInstance.message = 'Empleado Modificado Correctamente';
+        this.activeModal.close();
+      }
+       
      });
   }
 

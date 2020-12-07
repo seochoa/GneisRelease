@@ -4,6 +4,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { HandleHttpErrorService } from '../@base/handle-http-error.service';
 import { Usuario } from '../Models/usuario';
+import { User } from '../seguridad/user';
 
 @Injectable({
   providedIn: 'root'
@@ -19,19 +20,19 @@ export class UsuarioService {
     this.baseUrl = baseUrl;
   }
 
-  gets(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.baseUrl + 'api/Usuario')
+  gets(): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + 'api/Usuario')
         .pipe(
             tap(_ => this.handleErrorService.log('datos enviados')),
-            catchError(this.handleErrorService.handleError<Usuario[]>('Consulta Usuario', null))
+            catchError(this.handleErrorService.handleError<User[]>('Consulta Usuario', null))
         );
   }
 
-  post(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.baseUrl + 'api/Usuario', usuario)
+  post(usuario: User): Observable<User> {
+    return this.http.post<User>(this.baseUrl + 'api/Usuario', usuario)
         .pipe(
             tap(_ => this.handleErrorService.log('datos enviados')),
-            catchError(this.handleErrorService.handleError<Usuario>('Registrar Usuario', null))
+            catchError(this.handleErrorService.handleError<User>('Registrar Usuario', null))
         );
   }
 
@@ -44,11 +45,11 @@ export class UsuarioService {
     
   }
 
-  update(usuario : Usuario):Observable<string>{
-    return this.http.put<string>(this.baseUrl + 'api/Usuario', usuario)
+  update(usuario : User):Observable<User>{
+    return this.http.put<User>(this.baseUrl + 'api/Usuario', usuario)
     .pipe(
       tap(_ => this.handleErrorService.log('datos enviados')),
-      catchError(this.handleErrorService.handleError<string>('Actualizar Usuario', null))
+      catchError(this.handleErrorService.handleError<User>('Actualizar Usuario', null))
     );
   }
 

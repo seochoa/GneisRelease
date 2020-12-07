@@ -4,6 +4,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from '../../../Models/usuario';
 import { UsuarioService } from '../../../Services/usuario.service';
 import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.component';
+import { User } from '../../../seguridad/user';
 
 @Component({
   selector: 'app-actualiza-usuario',
@@ -12,8 +13,8 @@ import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.comp
 })
 export class ActualizaUsuarioComponent implements OnInit {
   formGroup: FormGroup;
-  @Input() usuarioviejo: Usuario;
-  usuario: Usuario;
+  @Input() usuarioviejo: User;
+  usuario: User;
   constructor(public activeModal: NgbActiveModal,private usuarioService : UsuarioService, private formbuilder : FormBuilder,private modalService : NgbModal) { }
   
   ngOnInit(): void {
@@ -21,12 +22,12 @@ export class ActualizaUsuarioComponent implements OnInit {
   }
 
   private buildform(){
-    this.usuario = new Usuario();
-    this.usuario.typeuser = this.usuarioviejo.typeuser;
+    this.usuario = new User();
+    this.usuario.role = this.usuarioviejo.role;
     this.usuario.password = this.usuarioviejo.password;
 
     this.formGroup = this.formbuilder.group({
-      typeuser     :[this.usuario.typeuser, Validators.required],
+      role     :[this.usuario.role, Validators.required],
       password     :[this.usuario.password,Validators.required],
     });
   }
@@ -46,13 +47,15 @@ export class ActualizaUsuarioComponent implements OnInit {
   Update(){
     
     this.usuario = this.formGroup.value;
-    this.usuario.iduser = this.usuarioviejo.iduser;
+    this.usuario.username = this.usuarioviejo.username;
     console.log(this.usuario);
      this.usuarioService.update(this.usuario).subscribe(p=>{
-       const menssageBox = this.modalService.open(AlertModalComponent)
+      if(p!=null){
+        const menssageBox = this.modalService.open(AlertModalComponent)
        menssageBox.componentInstance.type = "success";
        menssageBox.componentInstance.message = 'Usuario Modificado Correctamente';
        this.activeModal.close();
+      }
      });
   }
 

@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UsuarioService } from '../../Services/usuario.service';
 import { Usuario } from '../../Models/usuario';
 import { AlertModalComponent } from '../../@base/alert-modal/alert-modal.component';
+import { User } from '../../seguridad/user';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { AlertModalComponent } from '../../@base/alert-modal/alert-modal.compone
 })
 export class SignupComponent implements OnInit {
   formGroup: FormGroup;
-  usuario: Usuario;
+  usuario: User;
   constructor(private usuarioService : UsuarioService, private formbuilder : FormBuilder,private modalService : NgbModal) { }
 
   ngOnInit(): void {
@@ -21,12 +22,12 @@ export class SignupComponent implements OnInit {
   }
   
   private buildform(){
-    this.usuario = new Usuario();
-    this.usuario.iduser = '';
+    this.usuario = new User();
+    this.usuario.username = '';
     this.usuario.password = '';
 
     this.formGroup = this.formbuilder.group({
-      iduser       :[this.usuario.iduser, Validators.required],
+      username       :[this.usuario.username, Validators.required],
       password     :[this.usuario.password,Validators.required],
     });
   }
@@ -49,16 +50,18 @@ export class SignupComponent implements OnInit {
 
   add(){
     this.usuario = this.formGroup.value;
-    this.usuario.typeuser = 'Cliente';
+    this.usuario.role = 'Cliente';
+    console.log(this.usuario)
     this.usuarioService.post(this.usuario).subscribe(p=>{
       if(p!=null){
         const menssageBox = this.modalService.open(AlertModalComponent)
         menssageBox.componentInstance.type = 'success';
         menssageBox.componentInstance.message = 'Su usuario Se ha registrado exitosamente';
+        this.onReset();
         this.usuario = p;
       }
     });
-    this.onReset();
+    
   }
  
 

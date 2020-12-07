@@ -52,7 +52,7 @@ namespace Logica
             }
         }
 
-        public string Modificar (Cliente clientenuevo){
+        public GuardarClienteResponse Modificar (Cliente clientenuevo){
             try{
                 var clienteviejo = _context.Clientes.Find(clientenuevo.Cedula);
                 if(clienteviejo !=null){
@@ -69,14 +69,14 @@ namespace Logica
                 
                     _context.Clientes.Update(clienteviejo);
                     _context.SaveChanges();
-                    return ($"El registro se ha Actualizado sastifactoriamente.");
+                    return new GuardarClienteResponse (clienteviejo);
                 }
                 else{
-                    return ($"La Identificacion no se encuentra en nuestra base de datos");
+                    return new GuardarClienteResponse ($"La Identificacion no se encuentra en nuestra base de datos");
                 }
             }
             catch(Exception e){
-                return $"Error de la aplicacion: {e.Message}";
+                return new GuardarClienteResponse($"Error de la aplicacion: {e.Message}");
             }
         }
         

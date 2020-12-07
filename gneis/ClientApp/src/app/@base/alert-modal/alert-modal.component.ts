@@ -7,10 +7,10 @@ import {NgbActiveModal, NgbAlertConfig} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./alert-modal.component.css']
 })
 export class AlertModalComponent implements OnInit {
-  
-  @Input() type : string;
+  @Input() title;
   @Input() message;
-  constructor() {
+  @Input() type : string;
+  constructor(public activeModal: NgbActiveModal) {
 
    }
 

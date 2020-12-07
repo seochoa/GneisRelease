@@ -1,5 +1,5 @@
 <div class="modal-header animated fadeIn">
-    <h4 id="titulo" class="modal-title"><strong>Modificar A: {{usuarioviejo.iduser}}</strong></h4>
+    <h4 id="titulo" class="modal-title"><strong>Modificar A: {{usuarioviejo.username}}</strong></h4>
 </div>
 <div class="modal-body animated fadeIn">
     <div class="col col-sm-4 animated fadeIn fast">
@@ -23,13 +23,13 @@
                     </div>
                     <div class="form-group">
                         <h5 class="card-title "><strong>TypeUser</strong></h5>
-                        <select class="form-control" name="typeuser" id="typeuser" [ngClass]="{'is-invalid':control.typeuser.errors && control.typeuser.touched}" formControlName="typeuser">
+                        <select class="form-control" name="role" id="role" [ngClass]="{'is-invalid':control.role.errors && control.role.touched}" formControlName="role">
                                                 <option >Administrador</option>
                                                 <option >Cliente</option>
                                                 <option >Empleado</option>
                                             </select>
-                        <div *ngIf="control.typeuser.errors"  class="invalid-feedback">
-                            <div *ngIf="control.typeuser.errors.required">
+                        <div *ngIf="control.role.errors"  class="invalid-feedback">
+                            <div *ngIf="control.role.errors.required">
                                 Se requiere El tipo de usuario
                             </div>
                         </div>

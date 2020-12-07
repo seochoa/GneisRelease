@@ -68,10 +68,11 @@ export class RegistroEmpleadoComponent implements OnInit {
         const menssageBox = this.modalService.open(AlertModalComponent)
         menssageBox.componentInstance.type = 'success';
         menssageBox.componentInstance.message = 'Empleado registrado Correctamente';
+        this.onReset();
         this.empleado = p;
       }
     });
-    this.onReset();
+    
   }
 
 }

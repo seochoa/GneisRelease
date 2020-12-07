@@ -28,7 +28,12 @@ namespace gneis.Controllers
             Habitacion habitacion = MapearHabitacion(habitacionInput);
             var response = _habitacionservice.Guardar(habitacion);
             if (response.Error){
-                return BadRequest(response.Mensaje);
+                ModelState.AddModelError("Guardar Habitacion", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
             }
             return Ok(response.Habitacion);
         }
@@ -59,8 +64,16 @@ namespace gneis.Controllers
         [HttpPut]
         public ActionResult<string> Update(HabitacionInputModel habitacionInput){
             Habitacion habitacion = MapearHabitacion(habitacionInput);
-            string mensaje = _habitacionservice.Modificar(habitacion);
-            return Ok(mensaje);
+            var response = _habitacionservice.Modificar(habitacion);
+            if (response.Error){
+                ModelState.AddModelError("Actualizar Habitacion", response.Mensaje);
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
+            }
+            return Ok(response.Habitacion);
         }
 
         private Habitacion MapearHabitacion(HabitacionInputModel habitacionInput){

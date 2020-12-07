@@ -52,7 +52,7 @@ namespace Logica
             }
         }
 
-        public string Modificar (Empleado empleadonuevo){
+        public GuardarEmpleadoResponse Modificar (Empleado empleadonuevo){
             try{
                 var empleadoviejo = _context.Empleados.Find(empleadonuevo.Cedula);
                 if(empleadoviejo !=null){
@@ -69,14 +69,14 @@ namespace Logica
                 
                     _context.Empleados.Update(empleadoviejo);
                     _context.SaveChanges();
-                    return ($"El registro se ha Actualizado sastifactoriamente.");
+                    return new GuardarEmpleadoResponse  (empleadoviejo);
                 }
                 else{
-                    return ($"La Identificacion no se encuentra en nuestra base de datos");
+                    return new GuardarEmpleadoResponse  ($"La Identificacion no se encuentra en nuestra base de datos");
                 }
             }
             catch(Exception e){
-                return $"Error de la aplicacion: {e.Message}";
+                return new GuardarEmpleadoResponse  ($"Error de la aplicacion: {e.Message}");
             }
         }
     }

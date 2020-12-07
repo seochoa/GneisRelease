@@ -65,10 +65,11 @@ export class RegistroClienteComponent implements OnInit {
         const menssageBox = this.modalService.open(AlertModalComponent)
         menssageBox.componentInstance.type = 'success';
         menssageBox.componentInstance.message = 'Cliente registrado Correctamente';
+        this.onReset();
          this.cliente = p;
        }
     });
-    this.onReset();
+    
   }
 
 

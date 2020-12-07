@@ -1,15 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Usuario } from '../Models/usuario';
+import { User } from '../seguridad/user';
 
 @Pipe({
   name: 'filtroUsuario'
 })
 export class FiltroUsuarioPipe implements PipeTransform {
 
-  transform(Usuario: Usuario[], searchText: string): any {
+  transform(Usuario: User[], searchText: string): any {
     if (searchText == null) return Usuario;
     return Usuario.filter(p =>
-      p.iduser.toLowerCase()
+      p.username.toLowerCase()
       .indexOf(searchText.toLowerCase()) !== -1);
     }
 }

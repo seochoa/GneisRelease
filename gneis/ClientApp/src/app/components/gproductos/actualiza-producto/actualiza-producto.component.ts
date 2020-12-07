@@ -49,10 +49,12 @@ export class ActualizaProductoComponent implements OnInit {
     this.producto = this.formGroup.value;
     this.producto.idproducto = this.productoviejo.idproducto;
      this.productoService.update(this.producto).subscribe(p=>{
-       const menssageBox = this.modalService.open(AlertModalComponent)
-       menssageBox.componentInstance.type = "success";
-       menssageBox.componentInstance.message = 'Producto Modificado Correctamente';
-       this.activeModal.close();
+      if(p!=null){
+        const menssageBox = this.modalService.open(AlertModalComponent)
+        menssageBox.componentInstance.type = "success";
+        menssageBox.componentInstance.message = 'Producto Modificado Correctamente';
+        this.activeModal.close();
+      }
      });
   }
 

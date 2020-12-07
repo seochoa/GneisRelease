@@ -8,6 +8,7 @@ import { AlertModalComponent } from '../../@base/alert-modal/alert-modal.compone
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../../Services/authentication.service';
 import { first } from 'rxjs/operators';
+import { HandleHttpErrorService } from '../../@base/handle-http-error.service';
 
 @Component({
   selector: 'app-login',

@@ -12,9 +12,9 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <input autocomplete="off" type="text " name="iduser " class="input" placeholder="IDUser " [ngClass]="{'is-invalid':control.iduser.errors && control.iduser.touched}" formControlName="iduser">
-                        <div *ngIf="control.iduser.errors"  class="invalid-feedback">
-                            <div *ngIf="control.iduser.errors.required">
+                        <input autocomplete="off" type="text " name="username" class="input" placeholder="Username" [ngClass]="{'is-invalid':control.username.errors && control.username.touched}" formControlName="username">
+                        <div *ngIf="control.username.errors"  class="invalid-feedback">
+                            <div *ngIf="control.username.errors.required">
                                 Se requiere el ID del usuario
                             </div>
                         </div>

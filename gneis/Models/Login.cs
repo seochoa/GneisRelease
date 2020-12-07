@@ -10,7 +10,9 @@ namespace gneis.Models
 {
     public class LoginInputModel
     {
+        [StringLength(16,ErrorMessage="No digitar Mas de 16 caracteres")]
         public string Username {get; set;}
+        [Required]
         public string Password {get; set;}   
     }
 
