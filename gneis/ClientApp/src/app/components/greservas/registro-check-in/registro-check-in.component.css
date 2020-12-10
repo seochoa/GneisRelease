@@ -8,11 +8,6 @@ thead {
     text-transform: uppercase;
 }
 
-h5 {
-    color: #00BFA6;
-    font-family: 'Architects Daughter', cursive;
-}
-
 input {
     display: block;
     height: 50px;
@@ -29,11 +24,11 @@ input:active:focus {
     border-bottom: 1px solid #00BFA6;
 }
 
-#login {
+#eliminar {
     background-color: #00BFA6;
     color: white;
 }
 
-#login:hover {
+#eliminar:hover {
     background-color: #109281;
 }

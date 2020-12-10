@@ -1,0 +1,38 @@
+<div class="container">
+    <h2 id="titulo" class="title">Listado de Reservas</h2>
+    <input autocomplete="off" type="text " class="email" name="search" placeholder="Search" [(ngModel)]="searchreserva">
+
+</div>
+<br>
+<br>
+
+<div class="container">
+    <td><button id="eliminar" type="button" class="btn btn-light" (click)="consultar()"><i class="fas fa-redo-alt"></i></button></td>
+    <br>
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col ">#</th>
+                <th scope="col ">IDReserva</th>
+                <th scope="col ">IDHabitacion</th>
+                <th scope="col ">CedulaCliente</th>
+                <th scope="col ">FechaReserva</th>
+                <th scope="col ">Check-in</th>
+                <th scope="col ">Cancelar Reserva</th>
+                <th scope="col ">Ver Mas info..</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reserva of reservas; index as i ">
+                <th scope="row ">{{i+1}}</th>
+                <td><strong>{{reserva.idreserva}}</strong></td>
+                <td><strong>{{reserva.idhabitacion}}</strong></td>
+                <td><strong>{{reserva.idcliente}}</strong></td>
+                <td><strong>{{reserva.fechareserva}}</strong></td>
+                <td><button type="button" class="btn btn-secondary "><i class="fas fa-edit"> Check-in</i></button></td>
+                <td><button id="eliminar" type="button" class="btn btn-light" (click)="Cancelar(reserva)"><i class="fas fa-minus-circle"></i> Cancelar</button></td>
+                <td><button type="button" class="btn btn-secondary" (click)="Verinfo(reserva)"><i class="fas fa-info"></i> VerMas..</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -43,6 +43,14 @@ namespace gneis.Controllers
             return cliente;
         }
 
+        [HttpGet("{cedula}")]
+        public ActionResult<ClienteViewModel> get(string cedula){
+            var cliente = _clienteservice.BuscarPorID(cedula);
+            if(cliente == null)return NotFound();
+            var clienteView = new ClienteViewModel(cliente);
+            return clienteView;
+        }
+
         // DELETE: api/Producto/5
         [HttpDelete("{cedula}")]
         public ActionResult<string> Delete(string cedula)

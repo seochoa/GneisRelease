@@ -36,6 +36,14 @@ export class ClienteService {
         );
   }
 
+  get(cedula: string): Observable<Cliente> {
+    return this.http.get<Cliente>(this.baseUrl + 'api/Cliente/'+ cedula)
+        .pipe(
+        tap(_ => this.handleErrorService.log('datos enviados')),
+        catchError(this.handleErrorService.handleError<Cliente>('Consulta cliente', null))
+    );
+  }
+
   update(cliente : Cliente):Observable<string>{
     return this.http.put<string>(this.baseUrl + 'api/Cliente', cliente)
     .pipe(

@@ -41,20 +41,20 @@ namespace Logica
             return habitacion;
         }
 
-        public string Eliminar (string idhabitacion){
+        public GuardarHabitacionResponse Eliminar (string idhabitacion){
             try{
                 var HabitacionBuscada = _context.Habitaciones.Find(idhabitacion);
                 if(HabitacionBuscada !=null){
                     _context.Habitaciones.Remove(HabitacionBuscada);
                     _context.SaveChanges();
-                    return ($"El registro se ha eliminado sastifactoriamente.");
+                    return new GuardarHabitacionResponse (HabitacionBuscada);
                 }
                 else{
-                    return ($"La Identificacion no se encuentra en nuestra base de datos");
+                    return new GuardarHabitacionResponse ($"La Identificacion no se encuentra en nuestra base de datos");
                 }
             }
             catch(Exception e){
-                return $"Error de la aplicacion: {e.Message}";
+                return new GuardarHabitacionResponse ($"Error de la aplicacion: {e.Message}");
             }
         }
 

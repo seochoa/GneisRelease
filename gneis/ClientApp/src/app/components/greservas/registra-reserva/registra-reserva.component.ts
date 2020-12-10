@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Habitacion } from '../../../Models/habitacion';
 import { HabitacionService } from '../../../Services/habitacion.service';
 import { Reserva } from '../../../Models/reserva';
 import { Cliente } from '../../../Models/cliente';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteService } from '../../../Services/cliente.service';
 import { ReservaService } from '../../../Services/reserva.service';
 import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.component';
@@ -18,7 +18,7 @@ export class RegistraReservaComponent implements OnInit {
 
   habitaciones: Habitacion[];
   habitacionesfiltradas: Habitacion[]=[];
-  habitacion: Habitacion;
+  @Input() habitacion: Habitacion;
   Estado : string;
   idhabitacion: string;
   reserva: Reserva;
@@ -30,25 +30,15 @@ export class RegistraReservaComponent implements OnInit {
     private habitacionService: HabitacionService,
     private formbuilder : FormBuilder,private modalService : NgbModal,
     private clienteService: ClienteService,
-    private reservaService:ReservaService) { }
+    private reservaService:ReservaService,
+    public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
     this.Estado = 'Disponible';
-    this.consultar();
     this.buildform();
   }
 
-  consultar(){
-    this.habitacionService.gets().subscribe(result =>{
-      this.habitaciones = result;
-      for(let room of this.habitaciones){
-        if(room.estado === 'Disponible'){
-          this.habitacionesfiltradas.push(room);
-          console.log(this.habitacionesfiltradas);
-        }
-      }
-    });
-  }
+  
 
   private buildform(){
     this.cliente = new Cliente();
@@ -71,12 +61,11 @@ export class RegistraReservaComponent implements OnInit {
     });
 
     this.reserva = new Reserva();
-    this.reserva.idreserva = '';
     this.reserva.numeroinvitados = null;
     this.reserva.fechareserva = null;
 
     this.formGroupreserva = this.formbuilder.group({
-      idreserva       :[this.reserva.idreserva, Validators.required],
+
       numeroinvitados :[this.reserva.numeroinvitados, Validators.required],
       fechareserva    :[this.reserva.fechareserva,Validators.required],
     });  
@@ -99,28 +88,20 @@ export class RegistraReservaComponent implements OnInit {
     if(this.formGroupcliente.invalid){
       return;
     }
-    
+    this.cliente = this.formGroupcliente.value;
+    this.reserva = this.formGroupreserva.value;
+    this.reserva.idcliente = this.cliente.cedula;
+    this.reserva.idhabitacion = this.habitacion.idhabitacion;
+    this.reserva.idreserva = 'Rerserva' + this.habitacion.idhabitacion;
+    this.habitacion.estado = 'Reservada';
+    console.log(this.cliente);
+    console.log(this.reserva);
+    console.log(this.habitacion);
     this.agregar();
   }
 
   agregar(){
-    this.cliente = this.formGroupcliente.value;
-    this.reserva = this.formGroupreserva.value;
     
-    console.log(this.cliente);
-    
-    for(let room of this.habitaciones){
-      if(this.idhabitacion === room.idhabitacion){
-        
-        this.habitacion = new Habitacion();
-        this.habitacion = room;
-        this.habitacion.estado = 'Reservada';
-        console.log(this.habitacion);
-      }
-    }
-    this.reserva.idcliente = this.cliente.cedula;
-    this.reserva.idhabitacion = this.habitacion.idhabitacion;
-    console.log(this.reserva);
 
     this.clienteService.post(this.cliente).subscribe(p=>{
       if(p!=null){
@@ -133,17 +114,16 @@ export class RegistraReservaComponent implements OnInit {
         const menssageBox = this.modalService.open(AlertModalComponent)
         menssageBox.componentInstance.type = 'success';
         menssageBox.componentInstance.message = 'Reserva registrada Correctamente';
-        this.consultar();
+        this.activeModal.close();
          this.reserva = p;
        }
     });
 
-     this.habitacionService.update(this.habitacion).subscribe(p=>{
-       console.log(p)
-     });
-
-
-    this.onReset();
+    this.habitacionService.update(this.habitacion).subscribe(p=>{
+      console.log(p)
+    });
+     
+     
 
   }
 

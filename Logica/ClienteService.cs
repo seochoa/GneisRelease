@@ -35,6 +35,11 @@ namespace Logica
             return clientes;
         }
 
+        public Cliente BuscarPorID(string cedula){
+            Cliente cliente = _context.Clientes.Find(cedula);
+            return cliente;
+        }
+
         public string Eliminar (string cedula){
             try{
                 var ClienteBuscado = _context.Clientes.Find(cedula);

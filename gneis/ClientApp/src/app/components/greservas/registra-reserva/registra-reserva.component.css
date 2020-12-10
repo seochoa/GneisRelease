@@ -3,16 +3,12 @@
     font-family: 'Architects Daughter', cursive;
 }
 
-h3 {
-    color: #677573;
-    font-family: 'Architects Daughter', cursive;
-}
-
 .container {
+    text-align: justify;
     width: 100vw;
-    height: 0vh;
-    display: block;
-    padding-left: 300px;
+    height: 210vh;
+    padding: 0 2rem;
+    font-size: large;
 }
 
 .img {
@@ -28,12 +24,12 @@ h3 {
     text-align: center;
 }
 
-.img img {
-    width: 250px;
+img {
+    width: 300px;
 }
 
 form {
-    width: 650px;
+    width: 400px;
 }
 
 .login-content img {
@@ -151,6 +147,15 @@ a:hover {
     color: #38d39f;
 }
 
+#login {
+    background-color: #00BFA6;
+    color: white;
+}
+
+#login:hover {
+    background-color: #109281;
+}
+
 button {
     margin: 10px;
     text-transform: uppercase;
@@ -163,13 +168,4 @@ strong {
 
 .invalid-feedback {
     text-align: right;
-}
-
-#login {
-    background-color: #00BFA6;
-    color: white;
-}
-
-#login:hover {
-    background-color: #109281;
 }

@@ -75,6 +75,9 @@ import { ConsultaClienteComponent } from './components/gclientes/consulta-client
 import { ActualizaClienteComponent } from './components/gclientes/actualiza-cliente/actualiza-cliente.component';
 import { FiltroclientePipe } from './pipes/filtrocliente.pipe';
 import { JwtInterceptor } from './Services/jwt.interceptor';
+import { RegistroCheckInComponent } from './components/greservas/registro-check-in/registro-check-in.component';
+import { VerinfoReservaComponent } from './components/greservas/verinfo-reserva/verinfo-reserva.component';
+import { CancelarReservaComponent } from './components/greservas/cancelar-reserva/cancelar-reserva.component';
 
 
 
@@ -130,6 +133,9 @@ import { JwtInterceptor } from './Services/jwt.interceptor';
     ConsultaClienteComponent,
     ActualizaClienteComponent,
     FiltroclientePipe,
+    RegistroCheckInComponent,
+    VerinfoReservaComponent,
+    CancelarReservaComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -151,7 +157,10 @@ import { JwtInterceptor } from './Services/jwt.interceptor';
     EliminaHabitacionComponent,
     EliminaEmpleadoComponent,
     VerinfoEmpleadoComponent,
-    VerinfoClienteComponent],
+    VerinfoClienteComponent,
+    RegistraReservaComponent,
+    VerinfoReservaComponent,
+    CancelarReservaComponent],
     
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
   bootstrap: [AppComponent]

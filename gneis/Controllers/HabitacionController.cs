@@ -55,10 +55,18 @@ namespace gneis.Controllers
 
         // DELETE: api/Habitacion/5
         [HttpDelete("{idhabitacion}")]
-        public ActionResult<string> Delete(string idhabitacion)
+        public ActionResult<HabitacionViewModel> Delete(string idhabitacion)
         {
-            string mensaje = _habitacionservice.Eliminar(idhabitacion);
-            return Ok(mensaje);
+            var response = _habitacionservice.Eliminar(idhabitacion);
+            if (response.Error){
+                ModelState.AddModelError("Eliminar Habitacion", "Esta habitación tiene reservas en curso, cancele las reservas o espere el cierre de estas.");
+                var problemDetails = new ValidationProblemDetails(ModelState)
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                };
+                return BadRequest(problemDetails);
+            }
+            return Ok(response.Habitacion);
         }
 
         [HttpPut]

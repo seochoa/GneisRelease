@@ -1,0 +1,18 @@
+<div class="modal-header animated fadeIn">
+    <h4 id="titulo" class="modal-title"><strong>Seguro que quiere Cancelar la reserva: {{reservamostrar.idreserva}}</strong></h4>
+</div>
+<div class="modal-body animated fadeIn">
+    <div class="col col-sm-4 animated fadeIn fast">
+        <div class="container">
+            <h4 id="titulo" class="modal-title"><strong>Datos del cliente</strong></h4>
+            <p><strong>Cedula: </strong> {{reservamostrar.idcliente}} </p>
+            <h4 id="titulo" class="modal-title"><strong>Datos de la habitacion</strong></h4>
+            <p><strong>Habitacion: </strong> {{reservamostrar.idhabitacion}} </p>
+            <h4 id="titulo" class="modal-title"><strong>Datos de la reserva</strong></h4>
+            <p><strong>Fecha Reserva: </strong> {{reservamostrar.fechareserva}} </p>
+            <p><strong>Numero de Acompañantes: </strong> {{reservamostrar.numeroinvitados}} </p>
+            <button type="button" id="login" class="btn btn-light" (click)="eliminar()">Eliminar</button>
+            <button type="button"  class="btn btn-secondary"  (click)="activeModal.close('Close click')"> Cerrar</button>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,13 @@ export class ReservaService {
   {
     this.baseUrl = baseUrl;
   }
+  gets(): Observable<Reserva[]> {
+    return this.http.get<Reserva[]>(this.baseUrl + 'api/Reserva')
+        .pipe(
+            tap(_ => this.handleErrorService.log('datos enviados')),
+            catchError(this.handleErrorService.handleError<Reserva[]>('Consulta Usuario', null))
+        );
+  }
 
   post(reserva : Reserva): Observable<Reserva> {
     return this.http.post<Reserva>(this.baseUrl + 'api/Reserva', reserva)
@@ -26,5 +33,13 @@ export class ReservaService {
             tap(_ => this.handleErrorService.log('datos enviados')),
             catchError(this.handleErrorService.handleError<Reserva>('Registrar Reserva', null))
         );
+  }
+
+  delete(idreserva: string): Observable<string>{
+    return this.http.delete<string>(this.baseUrl +'api/Reserva/'+ idreserva)
+    .pipe(
+      tap(_ => this.handleErrorService.log('datos enviados')),
+      catchError(this.handleErrorService.handleError<string>('Eliminar Usuario', null))
+  );
   }
 }

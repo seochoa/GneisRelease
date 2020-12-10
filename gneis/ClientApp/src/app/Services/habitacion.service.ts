@@ -28,6 +28,14 @@ export class HabitacionService {
         );
   }
 
+  get(idhabitacion: string): Observable<Habitacion> {
+    return this.http.get<Habitacion>(this.baseUrl + 'api/Habitacion/'+ idhabitacion)
+        .pipe(
+        tap(_ => this.handleErrorService.log('datos enviados')),
+        catchError(this.handleErrorService.handleError<Habitacion>('Consulta Habitacion', null))
+    );
+  }
+
   post(habitacion : Habitacion): Observable<Habitacion> {
     return this.http.post<Habitacion>(this.baseUrl + 'api/Habitacion', habitacion)
         .pipe(
@@ -36,11 +44,11 @@ export class HabitacionService {
         );
   }
 
-  delete(idhabitacion: string): Observable<string>{
-      return this.http.delete<string>(this.baseUrl +'api/Habitacion/'+ idhabitacion)
+  delete(idhabitacion: string): Observable<Habitacion>{
+      return this.http.delete<Habitacion>(this.baseUrl +'api/Habitacion/'+ idhabitacion)
       .pipe(
         tap(_ => this.handleErrorService.log('datos enviados')),
-        catchError(this.handleErrorService.handleError<string>('Eliminar Habitacion', null))
+        catchError(this.handleErrorService.handleError<Habitacion>('Eliminar Habitacion', null))
     );
     
   }

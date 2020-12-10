@@ -18,11 +18,13 @@ export class EliminaHabitacionComponent implements OnInit {
   }
 
   eliminar(){
-    this.habitacionService.delete(this.habitacion.idhabitacion).subscribe(mensaje =>{
-      const menssageBox = this.modalService.open(AlertModalComponent)
-      menssageBox.componentInstance.type = 'success';
-      menssageBox.componentInstance.message = 'Habitacion Eliminada Correctamente';
-      this.activeModal.close();
+    this.habitacionService.delete(this.habitacion.idhabitacion).subscribe(p =>{
+      if(p!=null){
+        const menssageBox = this.modalService.open(AlertModalComponent)
+        menssageBox.componentInstance.type = 'success';
+        menssageBox.componentInstance.message = 'Habitacion Eliminada Correctamente';
+        this.activeModal.close();
+      }    
     });
   }
 
