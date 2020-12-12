@@ -26,6 +26,7 @@ export class HandleHttpErrorService {
       return of(result as T);
     };
   }
+  
   private mostrarError(error: any): void {
     const modalRef = this.modalService.open(AlertModalComponent);
     modalRef.componentInstance.title = 'Mensaje de Error';

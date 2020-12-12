@@ -13,6 +13,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using gneis.Config;
 using System.Text;
+using gneis.Hubs;
 
 namespace Gneis
 {
@@ -31,6 +32,9 @@ namespace Gneis
             // Configurar cadena de Conexion con EF
             var connectionString=Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ProyectoContext>(p=>p.UseSqlServer(connectionString));
+
+            // SignalR
+            services.AddSignalR();
 
             services.AddControllersWithViews();
 
@@ -117,6 +121,7 @@ namespace Gneis
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+                    endpoints.MapHub<SignalHub>("/signalHub");
             });
 
             app.UseSpa(spa =>

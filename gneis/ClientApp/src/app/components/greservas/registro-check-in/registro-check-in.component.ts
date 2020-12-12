@@ -5,6 +5,7 @@ import { Reserva } from 'src/app/Models/reserva';
 import { VerinfoReservaComponent } from '../verinfo-reserva/verinfo-reserva.component';
 import { CancelarReservaComponent } from '../cancelar-reserva/cancelar-reserva.component';
 import { RegistroEntradaComponent } from '../registro-entrada/registro-entrada.component';
+import { SignalRService } from '../../../Services/signal-r.service';
 
 @Component({
   selector: 'app-registro-check-in',
@@ -14,10 +15,11 @@ import { RegistroEntradaComponent } from '../registro-entrada/registro-entrada.c
 export class RegistroCheckInComponent implements OnInit {
   searchreserva: string;
   reservas : Reserva[];
-  constructor(private reservaService : ReservaService,private modalService : NgbModal) { }
+  constructor(private reservaService : ReservaService,private modalService : NgbModal, private signalRService : SignalRService) { }
 
   ngOnInit(): void {
     this.consultar();
+    this. signal();
   }
   
   consultar(){
@@ -39,5 +41,11 @@ export class RegistroCheckInComponent implements OnInit {
   Cancelar(reserva : Reserva){
     const menssageBox = this.modalService.open(CancelarReservaComponent);
     menssageBox.componentInstance.reservamostrar= reserva;
+  }
+
+  signal(){
+    this.signalRService.signalReceived.subscribe((reserva : Reserva)=>{
+      this.reservas.push(reserva);
+    })
   }
 }
