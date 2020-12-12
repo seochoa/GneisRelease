@@ -15,9 +15,8 @@ import { AlertModalComponent } from '../../../@base/alert-modal/alert-modal.comp
   styleUrls: ['./registra-reserva.component.css']
 })
 export class RegistraReservaComponent implements OnInit {
-
+  clients : Cliente[];
   habitaciones: Habitacion[];
-  habitacionesfiltradas: Habitacion[]=[];
   @Input() habitacion: Habitacion;
   Estado : string;
   idhabitacion: string;
@@ -25,16 +24,47 @@ export class RegistraReservaComponent implements OnInit {
   cliente: Cliente;
   formGroupreserva: FormGroup;
   formGroupcliente: FormGroup;
+  searchcliente : string;
+  clientebuscado: Cliente;
+ 
 
   constructor(
     private habitacionService: HabitacionService,
-    private formbuilder : FormBuilder,private modalService : NgbModal,
+    private formbuilder : FormBuilder,
+    private modalService : NgbModal,
     private clienteService: ClienteService,
     private reservaService:ReservaService,
     public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
+    this.clienteService.gets().subscribe(result =>{
+      this.clients = result;
+    });
+    
     this.Estado = 'Disponible';
+    this.buildform();
+  }
+
+  buscarcliente(){
+    this.clientebuscado = null;
+    console.log(this.clients);
+    console.log(this.searchcliente);
+    for(let clie of this.clients){
+      if(clie.cedula == this.searchcliente){
+        this.clientebuscado = clie;
+      }
+    }
+   console.log(this.clientebuscado)
+   if(this.clientebuscado != null){
+      const menssageBox = this.modalService.open(AlertModalComponent)
+      menssageBox.componentInstance.type = 'success';
+      menssageBox.componentInstance.message = 'El Cliente ya se encuentra registrado en nuestra base de datos por favor solo ingrese los datos de la reserva';
+    }
+    else{
+      const menssageBox = this.modalService.open(AlertModalComponent)
+      menssageBox.componentInstance.type = 'success';
+      menssageBox.componentInstance.message = 'El Cliente no se encuentra registrado en nuestra base de datos por favor haga el debido registro de este';
+    }
     this.buildform();
   }
 
@@ -89,6 +119,7 @@ export class RegistraReservaComponent implements OnInit {
       return;
     }
     this.cliente = this.formGroupcliente.value;
+    this.cliente.hospedajes = 0;
     this.reserva = this.formGroupreserva.value;
     this.reserva.idcliente = this.cliente.cedula;
     this.reserva.idhabitacion = this.habitacion.idhabitacion;
@@ -97,18 +128,33 @@ export class RegistraReservaComponent implements OnInit {
     console.log(this.cliente);
     console.log(this.reserva);
     console.log(this.habitacion);
+    this.agregarcliente();
+    this.agregar();
+    
+  }
+
+  onSave2(){
+    if(this.formGroupreserva.invalid){
+      return;
+    }
+    this.reserva = this.formGroupreserva.value;
+    this.reserva.idhabitacion = this.habitacion.idhabitacion;
+    this.reserva.idcliente = this.clientebuscado.cedula;
+    this.reserva.idreserva = 'Rerserva' + this.habitacion.idhabitacion;
+    this.habitacion.estado = 'Reservada';
     this.agregar();
   }
 
-  agregar(){
-    
-
+  agregarcliente(){
     this.clienteService.post(this.cliente).subscribe(p=>{
       if(p!=null){
          this.cliente = p;
        }
     });
+  }
 
+  agregar(){
+    
     this.reservaService.post(this.reserva).subscribe(p=>{
       if(p!=null){
         const menssageBox = this.modalService.open(AlertModalComponent)

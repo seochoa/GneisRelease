@@ -19,6 +19,67 @@ namespace Datos.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Entidad.Checkin", b =>
+                {
+                    b.Property<string>("Idcheckin")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime>("Fechaentrada")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Idcliente")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Idhabitacion")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("Numeroinvitados")
+                        .HasColumnType("int");
+
+                    b.HasKey("Idcheckin");
+
+                    b.HasIndex("Idcliente");
+
+                    b.HasIndex("Idhabitacion");
+
+                    b.ToTable("Checkins");
+                });
+
+            modelBuilder.Entity("Entidad.Checkout", b =>
+                {
+                    b.Property<string>("Idcheckout")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("DiasHospedaje")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Fechaentrada")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Fechasalida")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Idcliente")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Idhabitacion")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("Numeroinvitados")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalHospedaje")
+                        .HasColumnType("decimal(15,2)");
+
+                    b.HasKey("Idcheckout");
+
+                    b.HasIndex("Idcliente");
+
+                    b.HasIndex("Idhabitacion");
+
+                    b.ToTable("Checkouts");
+                });
+
             modelBuilder.Entity("Entidad.Cliente", b =>
                 {
                     b.Property<string>("Cedula")
@@ -184,6 +245,28 @@ namespace Datos.Migrations
                     b.HasKey("Iduser");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("Entidad.Checkin", b =>
+                {
+                    b.HasOne("Entidad.Cliente", null)
+                        .WithMany()
+                        .HasForeignKey("Idcliente");
+
+                    b.HasOne("Entidad.Habitacion", null)
+                        .WithMany()
+                        .HasForeignKey("Idhabitacion");
+                });
+
+            modelBuilder.Entity("Entidad.Checkout", b =>
+                {
+                    b.HasOne("Entidad.Cliente", null)
+                        .WithMany()
+                        .HasForeignKey("Idcliente");
+
+                    b.HasOne("Entidad.Habitacion", null)
+                        .WithMany()
+                        .HasForeignKey("Idhabitacion");
                 });
 
             modelBuilder.Entity("Entidad.Reserva", b =>

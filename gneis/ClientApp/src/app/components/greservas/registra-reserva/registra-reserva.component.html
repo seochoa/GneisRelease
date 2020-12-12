@@ -1,5 +1,9 @@
 <div class="modal-header animated fadeIn">
     <h4 id="titulo" class="modal-title"><strong>Reservar habitacion: {{habitacion.idhabitacion}}</strong></h4>
+    <form>
+        <input autocomplete="off" type="text " class="form-control" name="search" placeholder="Search" [(ngModel)]="searchcliente">
+        <button type="button" class="btn btn-light" id="login" (click)="buscarcliente()">Buscar Cliente</button>
+    </form>
 </div>
 <div class="modal-body animated fadeIn">
     <div class="col col-sm-4 animated fadeIn fast">
@@ -7,10 +11,10 @@
 
             <div class="login-content">
                 <form [formGroup]="formGroupcliente">
-                    <h5 class="card-title "><strong>Datos Cliente</strong></h5>
+                    <h5 class="card-title " *ngIf="!clientebuscado"><strong>Datos Cliente</strong></h5>
                     <br>
 
-                    <div class="col">
+                    <div class="col" *ngIf="!clientebuscado">
                         <h5 class="card-title"><strong>Cedula</strong></h5>
                         <div class="input-div one">
                             <div class="i">
@@ -31,7 +35,7 @@
                         <button type="button" class="btn btn-light" id="login">Buscar Cliente</button>
                     </div> -->
 
-                    <div class="col">
+                    <div class="col" *ngIf="!clientebuscado">
                         <h5 class="card-title"><strong>Nombre</strong></h5>
                         <div class="input-div one">
                             <div class="i">
@@ -48,7 +52,7 @@
                         </div>
                     </div>
 
-                    <div class="col ">
+                    <div class="col " *ngIf="!clientebuscado">
                         <h5 class="card-title "><strong>Direccion</strong></h5>
                         <div class="input-div one ">
                             <div class="i ">
@@ -65,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div class="col ">
+                    <div class="col " *ngIf="!clientebuscado">
                         <h5 class="card-title "><strong>Edad</strong></h5>
                         <div class="input-div one ">
                             <div class="i ">
@@ -82,7 +86,7 @@
                         </div>
                     </div>
 
-                    <div class="col ">
+                    <div class="col " *ngIf="!clientebuscado">
                         <h5 class="card-title "><strong>Sexo</strong></h5>
                         <select class="form-control " name="sexo" id="sexo" [ngClass]="{'is-invalid':control.sexo.errors && control.sexo.touched}" formControlName="sexo">
                                 <option >F</option>
@@ -95,7 +99,7 @@
                         </div>
                     </div>
 
-                    <div class="col ">
+                    <div class="col " *ngIf="!clientebuscado">
                         <h5 class="card-title "><strong>Telefono</strong></h5>
                         <div class="input-div one ">
                             <div class="i ">
@@ -112,7 +116,7 @@
                         </div>
                     </div>
 
-                    <div class="col ">
+                    <div class="col " *ngIf="!clientebuscado">
                         <h5 class="card-title "><strong>Correo</strong></h5>
                         <div class="input-div one ">
                             <div class="i ">
@@ -179,8 +183,11 @@
                     </div>
 
 
-                    <div class="text-center ">
+                    <div class="text-center" *ngIf="!clientebuscado">
                         <button type="button" class="btn btn-light" (click)="onSave() " [disabled]="formGroupcliente.invalid || formGroupreserva.invalid" id="login">Registrar</button>
+                    </div>
+                    <div class="text-center" *ngIf="clientebuscado">
+                        <button type="button" class="btn btn-light" (click)="onSave2() " [disabled]="formGroupreserva.invalid" id="login">Registrar</button>
                     </div>
                 </form>
 

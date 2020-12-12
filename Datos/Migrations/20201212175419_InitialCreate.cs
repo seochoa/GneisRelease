@@ -101,6 +101,63 @@ namespace Datos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Checkins",
+                columns: table => new
+                {
+                    Idcheckin = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    Idhabitacion = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    Idcliente = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    Numeroinvitados = table.Column<int>(nullable: false),
+                    Fechaentrada = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Checkins", x => x.Idcheckin);
+                    table.ForeignKey(
+                        name: "FK_Checkins_Clientes_Idcliente",
+                        column: x => x.Idcliente,
+                        principalTable: "Clientes",
+                        principalColumn: "Cedula",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Checkins_Habitaciones_Idhabitacion",
+                        column: x => x.Idhabitacion,
+                        principalTable: "Habitaciones",
+                        principalColumn: "Idhabitacion",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Checkouts",
+                columns: table => new
+                {
+                    Idcheckout = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    Idhabitacion = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    Idcliente = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    Numeroinvitados = table.Column<int>(nullable: false),
+                    Fechaentrada = table.Column<DateTime>(nullable: false),
+                    Fechasalida = table.Column<DateTime>(nullable: false),
+                    DiasHospedaje = table.Column<int>(nullable: false),
+                    TotalHospedaje = table.Column<decimal>(type: "decimal(15,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Checkouts", x => x.Idcheckout);
+                    table.ForeignKey(
+                        name: "FK_Checkouts_Clientes_Idcliente",
+                        column: x => x.Idcliente,
+                        principalTable: "Clientes",
+                        principalColumn: "Cedula",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Checkouts_Habitaciones_Idhabitacion",
+                        column: x => x.Idhabitacion,
+                        principalTable: "Habitaciones",
+                        principalColumn: "Idhabitacion",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Reservas",
                 columns: table => new
                 {
@@ -128,6 +185,26 @@ namespace Datos.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Checkins_Idcliente",
+                table: "Checkins",
+                column: "Idcliente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Checkins_Idhabitacion",
+                table: "Checkins",
+                column: "Idhabitacion");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Checkouts_Idcliente",
+                table: "Checkouts",
+                column: "Idcliente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Checkouts_Idhabitacion",
+                table: "Checkouts",
+                column: "Idhabitacion");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Reservas_Idcliente",
                 table: "Reservas",
                 column: "Idcliente");
@@ -140,6 +217,12 @@ namespace Datos.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Checkins");
+
+            migrationBuilder.DropTable(
+                name: "Checkouts");
+
             migrationBuilder.DropTable(
                 name: "Empleados");
 

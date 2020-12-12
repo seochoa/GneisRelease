@@ -1,0 +1,37 @@
+<div class="container">
+    <h2 id="titulo" class="title">Listado de Registros de Entrada (Check-In)</h2>
+    <input autocomplete="off" type="text " class="email" name="search" placeholder="Search" [(ngModel)]="searchcheck">
+
+</div>
+<br>
+<br>
+
+<div class="container">
+    <td><button id="eliminar" type="button" class="btn btn-light" (click)="consultar()"><i class="fas fa-redo-alt"></i></button></td>
+    <br>
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col ">#</th>
+                <th scope="col ">IDCheckin</th>
+                <th scope="col ">IDHabitacion</th>
+                <th scope="col ">CedulaCliente</th>
+                <th scope="col ">NInvitados</th>
+                <th scope="col ">FechaEntrada</th>
+                <th scope="col ">Check-Out</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let checkin of checkins; index as i ">
+                <th scope="row ">{{i+1}}</th>
+                <td><strong>{{checkin.idcheckin}}</strong></td>
+                <td><strong>{{checkin.idhabitacion}}</strong></td>
+                <td><strong>{{checkin.idcliente}}</strong></td>
+                <td><strong>{{checkin.numeroinvitados}}</strong></td>
+                <td><strong>{{checkin.fechaentrada|date: 'medium'}}</strong></td>
+                <td><button type="button" class="btn btn-secondary"><i class="fas fa-edit"> Check-Out</i></button></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

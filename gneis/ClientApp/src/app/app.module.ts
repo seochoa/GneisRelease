@@ -78,6 +78,8 @@ import { JwtInterceptor } from './Services/jwt.interceptor';
 import { RegistroCheckInComponent } from './components/greservas/registro-check-in/registro-check-in.component';
 import { VerinfoReservaComponent } from './components/greservas/verinfo-reserva/verinfo-reserva.component';
 import { CancelarReservaComponent } from './components/greservas/cancelar-reserva/cancelar-reserva.component';
+import { RegistroEntradaComponent } from './components/greservas/registro-entrada/registro-entrada.component';
+import { ListadoCheckinComponent } from './components/greservas/listado-checkin/listado-checkin.component';
 
 
 
@@ -136,6 +138,8 @@ import { CancelarReservaComponent } from './components/greservas/cancelar-reserv
     RegistroCheckInComponent,
     VerinfoReservaComponent,
     CancelarReservaComponent,
+    RegistroEntradaComponent,
+    ListadoCheckinComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -160,7 +164,8 @@ import { CancelarReservaComponent } from './components/greservas/cancelar-reserv
     VerinfoClienteComponent,
     RegistraReservaComponent,
     VerinfoReservaComponent,
-    CancelarReservaComponent],
+    CancelarReservaComponent,
+    RegistroEntradaComponent],
     
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
   bootstrap: [AppComponent]

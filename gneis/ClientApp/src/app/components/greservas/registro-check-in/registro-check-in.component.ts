@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Reserva } from 'src/app/Models/reserva';
 import { VerinfoReservaComponent } from '../verinfo-reserva/verinfo-reserva.component';
 import { CancelarReservaComponent } from '../cancelar-reserva/cancelar-reserva.component';
+import { RegistroEntradaComponent } from '../registro-entrada/registro-entrada.component';
 
 @Component({
   selector: 'app-registro-check-in',
@@ -28,6 +29,11 @@ export class RegistroCheckInComponent implements OnInit {
   Verinfo(reserva : Reserva){
     const menssageBox = this.modalService.open(VerinfoReservaComponent);
     menssageBox.componentInstance.reservamostrar= reserva;
+  }
+
+  checkin(reserva : Reserva){
+    const menssageBox = this.modalService.open(RegistroEntradaComponent);
+    menssageBox.componentInstance.reserva= reserva;
   }
 
   Cancelar(reserva : Reserva){

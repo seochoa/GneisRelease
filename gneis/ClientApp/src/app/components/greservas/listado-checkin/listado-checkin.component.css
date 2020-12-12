@@ -1,0 +1,34 @@
+#titulo {
+    color: #00BFA6;
+    font-family: 'Architects Daughter', cursive;
+}
+
+thead {
+    color: #00BFA6;
+    text-transform: uppercase;
+}
+
+input {
+    display: block;
+    height: 50px;
+    width: 90%;
+    border: none;
+    margin: none;
+}
+
+input:hover,
+input:focus,
+input:active:focus {
+    color: rgb(56, 54, 54);
+    outline: none;
+    border-bottom: 1px solid #00BFA6;
+}
+
+#eliminar {
+    background-color: #00BFA6;
+    color: white;
+}
+
+#eliminar:hover {
+    background-color: #109281;
+}

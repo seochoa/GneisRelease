@@ -28,8 +28,8 @@
                 <td><strong>{{reserva.idreserva}}</strong></td>
                 <td><strong>{{reserva.idhabitacion}}</strong></td>
                 <td><strong>{{reserva.idcliente}}</strong></td>
-                <td><strong>{{reserva.fechareserva}}</strong></td>
-                <td><button type="button" class="btn btn-secondary "><i class="fas fa-edit"> Check-in</i></button></td>
+                <td><strong>{{reserva.fechareserva|date: 'medium'}}</strong></td>
+                <td><button type="button" class="btn btn-secondary " (click)="checkin(reserva)"><i class="fas fa-edit"> Check-in</i></button></td>
                 <td><button id="eliminar" type="button" class="btn btn-light" (click)="Cancelar(reserva)"><i class="fas fa-minus-circle"></i> Cancelar</button></td>
                 <td><button type="button" class="btn btn-secondary" (click)="Verinfo(reserva)"><i class="fas fa-info"></i> VerMas..</button></td>
             </tr>

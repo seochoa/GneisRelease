@@ -30,6 +30,7 @@ import { AuthAdminGuard } from './Services/auth-admin.guard';
 import { AuthEmpGuard } from './Services/auth-emp.guard';
 import { AuthClientGuard } from './Services/auth-client.guard';
 import { RegistroCheckInComponent } from './components/greservas/registro-check-in/registro-check-in.component';
+import { ListadoCheckinComponent } from './components/greservas/listado-checkin/listado-checkin.component';
 
 
 
@@ -52,6 +53,7 @@ const routes: Routes=[
   {path: "ConsultaP" , component: ConsultaProductoComponent,canActivate: [AuthEmpGuard]},
 
   {path: "RegistroCI" , component: RegistroCheckInComponent,canActivate: [AuthEmpGuard]},
+  {path: "RegistroCOUT" , component: ListadoCheckinComponent,canActivate: [AuthEmpGuard]},
 
   {path: "RegistroRU" , component: RegistraReservaComponent,canActivate: [AuthClientGuard]},
   {path: "ConsultaDH" , component: ConsultarDiponibilidadComponent,canActivate: [AuthClientGuard]},
