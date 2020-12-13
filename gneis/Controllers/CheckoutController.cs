@@ -12,7 +12,7 @@ using Datos;
 using Microsoft.AspNetCore.Authorization;
 namespace gneis.Controllers
 {
-    [Authorize]
+    // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CheckoutController : ControllerBase

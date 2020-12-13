@@ -80,6 +80,9 @@ import { VerinfoReservaComponent } from './components/greservas/verinfo-reserva/
 import { CancelarReservaComponent } from './components/greservas/cancelar-reserva/cancelar-reserva.component';
 import { RegistroEntradaComponent } from './components/greservas/registro-entrada/registro-entrada.component';
 import { ListadoCheckinComponent } from './components/greservas/listado-checkin/listado-checkin.component';
+import { RegistrocheckoutComponent } from './components/greservas/registrocheckout/registrocheckout.component';
+import { ListadocheckoutComponent } from './components/greservas/listadocheckout/listadocheckout.component';
+import { GenerarfacturapdfComponent } from './components/greservas/generarfacturapdf/generarfacturapdf.component';
 
 
 
@@ -140,6 +143,9 @@ import { ListadoCheckinComponent } from './components/greservas/listado-checkin/
     CancelarReservaComponent,
     RegistroEntradaComponent,
     ListadoCheckinComponent,
+    RegistrocheckoutComponent,
+    ListadocheckoutComponent,
+    GenerarfacturapdfComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -165,7 +171,9 @@ import { ListadoCheckinComponent } from './components/greservas/listado-checkin/
     RegistraReservaComponent,
     VerinfoReservaComponent,
     CancelarReservaComponent,
-    RegistroEntradaComponent],
+    RegistroEntradaComponent,
+    RegistrocheckoutComponent,
+    GenerarfacturapdfComponent],
     
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
   bootstrap: [AppComponent]

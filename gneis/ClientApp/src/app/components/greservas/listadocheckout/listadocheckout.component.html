@@ -1,0 +1,41 @@
+<div class="container">
+    <h2 id="titulo" class="title">Listado de Registros de salida (Check-Out)</h2>
+    <input autocomplete="off" type="text " class="email" name="search" placeholder="Search" [(ngModel)]="searchcheck">
+
+</div>
+<br>
+<br>
+
+<div class="container">
+    <td><button id="eliminar" type="button" class="btn btn-light" (click)="consultar()"><i class="fas fa-redo-alt"></i></button></td>
+    <br>
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col ">#</th>
+                <th scope="col ">IDCheckout</th>
+                <th scope="col ">IDHabitacion</th>
+                <th scope="col ">CedulaCliente</th>
+                <th scope="col ">NInvitados</th>
+                <th scope="col ">FechaEntrada</th>
+                <th scope="col ">FechaSalida</th>
+                <th scope="col ">TotalHospedaje</th>
+                <th scope="col ">Facturar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let check of checkouts; index as i ">
+                <th scope="row ">{{i+1}}</th>
+                <td><strong>{{check.idcheckout}}</strong></td>
+                <td><strong>{{check.idhabitacion}}</strong></td>
+                <td><strong>{{check.idcliente}}</strong></td>
+                <td><strong>{{check.numeroinvitados}}</strong></td>
+                <td><strong>{{check.fechaentrada|date: 'medium'}}</strong></td>
+                <td><strong>{{check.fechasalida|date: 'medium'}}</strong></td>
+                <td><strong>{{check.totalHospedaje|currency:'COP$ ':'symbol':'.0-0'}}</strong></td>
+                <td><button type="button" class="btn btn-secondary"><i class="fas fa-edit" (click)="generarfactura(check)">Procesar Factura</i></button></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

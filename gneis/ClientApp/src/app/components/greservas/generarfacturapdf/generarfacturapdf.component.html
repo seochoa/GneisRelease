@@ -1,0 +1,21 @@
+<div class="div">
+    <div id="pdf" class="modal-header">
+        <div class="container">
+            <div id="htmlData">
+                <p style="text-align: center;color: hsl(172, 40%, 54%);">-------------------------------------------------------------------<br>Hotel Neruda<br><small>FACTURA N°: FAC{{checkout.idcheckout}}</small> <br>-------------------------------------------------------------------</p>
+                <p><small><strong>Señor(a): </strong>{{cliente.nombre}}</small></p>
+                <p><small><strong>Direccion: </strong>{{cliente.direccion}}</small></p>
+                <p><small><strong>Documento Identidad: </strong>{{cliente.cedula}}</small> <small><strong> Fecha: </strong>{{fecha|date:"shortDate"}}</small></p>
+                <p style="text-align: center;color: #00BFA6;">-------------------------------------------------------------------</p>
+                <p><small><strong>Cant Dias: </strong>{{checkout.diasHospedaje}}</small></p>
+                <p><small><strong>Descripcion: </strong>Alquiler de habitacion N° {{habitacion.idhabitacion}} desde {{checkout.fechaentrada|date:"shortDate"}} hasta {{checkout.fechasalida|date:"shortDate"}} con {{checkout.numeroinvitados}} invitados</small></p>
+                <p><small><strong>Precio Por Dia: </strong>{{habitacion.costo}}</small></p>
+                <p style="text-align: center;color: #00BFA6;">-------------------------------------------------------------------</p>
+                <h2 style="text-align: center;color: #00BFA6;"><small><strong>TOTAL: </strong>{{checkout.totalHospedaje}}</small></h2>
+            </div>
+        </div>
+    </div>
+    <div class=" modal-body ">
+        <td><button type="button " id="login" class="btn btn-light" (click)="generarpdf() ">Generar PDF</button></td>
+    </div>
+</div>

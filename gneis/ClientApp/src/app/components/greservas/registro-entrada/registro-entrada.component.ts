@@ -40,8 +40,7 @@ export class RegistroEntradaComponent implements OnInit {
     });
 
     this.clienteService.get(this.reserva.idcliente).subscribe(result =>{
-      this.cliente = result;
-      
+      this.cliente = result; 
     });
     this.buildform();
   }
@@ -66,7 +65,7 @@ export class RegistroEntradaComponent implements OnInit {
     this.checkin.idcheckin = 'CHKIN' + this.habitacion.idhabitacion;
     this.checkin.idhabitacion = this.habitacion.idhabitacion;
     this.checkin.idcliente = this.cliente.cedula;
-
+    this.checkin.numeroinvitados = this.reserva.numeroinvitados;
     this.habitacion.estado = 'Ocupada'
     this.habitacion.usos +=1;
 

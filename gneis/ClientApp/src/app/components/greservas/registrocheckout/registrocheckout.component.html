@@ -1,0 +1,69 @@
+<div class="modal-header animated fadeIn">
+    <h4 id="titulo" class="modal-title"><strong>Registrar Salida del Hospedaje: {{checkin.idcheckin}}</strong></h4>
+</div>
+<div class="modal-body animated fadeIn">
+    <div class="col col-sm-4 animated fadeIn fast">
+        <div class="container">
+
+            <div class="login-content">
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title "><strong>Datos Cliente</strong></h5>
+                            Cedula: {{cliente.cedula}} Nombre: {{cliente.nombre}}
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="login-content">
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title "><strong>Datos Habitacion</strong></h5>
+                            IDHabitacion: {{habitacion.idhabitacion}} Tipo: {{habitacion.tipo}} Costo: {{habitacion.costo}}
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="login-content">
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title "><strong>Datos Checkin</strong></h5>
+                            IDCheckin: {{checkin.idcheckin}} FechaEntrada: {{checkin.fechaentrada|date:"shortDate"}}
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="login-content ">
+
+                <form [formGroup]="formGroupcheckout">
+
+                    <div class="col ">
+                        <h5 class="card-title "><strong>Fecha Salida</strong></h5>
+                        <input type="date" autocomplete="off" name="fecha de reserva " class="form-control" [ngClass]="{'is-invalid':control2.fechasalida.errors && control2.fechasalida.touched}" formControlName="fechasalida">
+                        <div *ngIf=" control2.fechasalida.errors"  class="invalid-feedback ">
+                            <div *ngIf="control2.fechasalida.errors.required ">
+                                Se requiere el fecha de fechasalida
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center">
+                        <button type="button" class="btn btn-light" (click)="onSave()" [disabled]="formGroupcheckout.invalid" id="login">Registrar</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>

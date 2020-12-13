@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar navbar-light">
-    <a class="navbar-brand" id="titulo">GNEIS<small>Version 1.10</small></a>
+    <a class="navbar-brand" id="titulo">GNEIS<small>Version 1.11</small></a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -78,11 +78,10 @@
             <li class="nav-item">
                 <div class="dropdown">
                     <button id="drop" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="currentUser && currentUser.role == 'Empleado'">
-                      <strong>Facturas</strong>
+                      <strong>Facturacion</strong>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" id="opciones" [routerLink]="['/home2']">Registrar</a>
-                        <a class="dropdown-item" id="opciones" [routerLink]="['/home2']">Consultar</a>
+                        <a class="dropdown-item" id="opciones" [routerLink]="['/RegistroF']">Facturar</a>
                     </div>
                 </div>
             </li>

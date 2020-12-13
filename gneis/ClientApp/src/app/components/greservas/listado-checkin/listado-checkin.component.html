@@ -29,7 +29,7 @@
                 <td><strong>{{checkin.idcliente}}</strong></td>
                 <td><strong>{{checkin.numeroinvitados}}</strong></td>
                 <td><strong>{{checkin.fechaentrada|date: 'medium'}}</strong></td>
-                <td><button type="button" class="btn btn-secondary"><i class="fas fa-edit"> Check-Out</i></button></td>
+                <td><button type="button" class="btn btn-secondary" (click)="checkout(checkin)"><i class="fas fa-edit"> Check-Out</i></button></td>
 
             </tr>
         </tbody>

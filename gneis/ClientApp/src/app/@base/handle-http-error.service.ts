@@ -27,12 +27,12 @@ export class HandleHttpErrorService {
     };
   }
   
-  private mostrarError(error: any): void {
-    const modalRef = this.modalService.open(AlertModalComponent);
-    modalRef.componentInstance.title = 'Mensaje de Error';
-    modalRef.componentInstance.message = error.errors;
-    console.error(error);
-  }
+  // private mostrarError(error: any): void {
+  //   const modalRef = this.modalService.open(AlertModalComponent);
+  //   modalRef.componentInstance.title = 'Mensaje de Error';
+  //   modalRef.componentInstance.message = error.errors;
+  //   console.error(error);
+  // }
  
   private mostrarError500(error: any) {
      console.error(error);
